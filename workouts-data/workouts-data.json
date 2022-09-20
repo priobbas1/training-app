@@ -1,0 +1,16 @@
+    [
+        {
+            "name": "farmer's carry",
+            "description": "take short and quick steps forward for a set distance holding the dumbells. lower the dumbells down to the floor, take a short break and repeat on the way back",
+            "image":"./images/farmers-carry.gif",
+            "typology": "dumbbell",
+            "muscle": "full body workout"         
+        },
+        {
+            "name": "dead lift dumbbell",
+            "description": "squeeze your glutes and tighten your las. exhale and lift the dumbbells until standing up straight. rotate your shoulders back until feeling slightly streched. pause for a count, inhale and return to the starting position",
+            "image":"./images/dead-lift-dumbbell.gif",
+            "typology": "dumbbell",
+            "muscle": "glutes, lower back, quadriceps, hasmstrings"         
+        }
+    ]

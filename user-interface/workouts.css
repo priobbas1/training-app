@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    font-family: sans-serif, monospace;
+}
+
+html{
+    background-color: #323232;
+}
+
+header{
+    display: flex;
+    justify-items: stretch;
+    width: 100%;
+    justify-content:flex-end;
+    position: sticky;
+    top: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+nav {
+    text-transform: uppercase;
+    background-color:#424242;
+    width: 100%;
+}
+
+.navList{ 
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: center;
+    margin: 1rem;
+}
+
+li{
+    padding: 0.4rem;
+}
+
+a:link {
+    color: white;
+    text-decoration: none;
+}
+
+a:visited {
+    color: white;
+}
+
+a:hover {
+    color: #e5982b;
+}
+
+a:active {
+    color: white;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    background-size: cover;
+    position: fixed;
+    margin-bottom: 0;
+    background-image: url("http://source.unsplash.com/random?workout");
+    background-size: cover;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(2px);
+    border-radius: 2rem;
+    width: fit-content;
+}
+
+h1{
+    display: flex;
+    color: #e5982b;
+    align-self: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+/* h2{
+    display: flex;
+    background-color: #424242b2;
+    color: #e5982b;
+    font-size: 20px;
+    align-self: center;
+    margin-bottom: 1rem;
+}
+ */
+form{
+    color: white;
+    font: 600 monospace bold;
+    display: flex;
+    flex-direction: column;
+    background-color: #424242b2;
+    /* border: 1px solid black; */
+    box-shadow: 0.4rem 0.4rem 0.4rem 0.4rem #00000056;
+    border-radius: 2rem;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+
+}
+
+.workoutsList{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-content: center;
+    font-size: 12px;
+    width: 16rem;
+}
+
+.workoutsList > li{
+    font-size: 12px;
+    background-color: #424242b2;
+    width: 100%;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #424242;
+    color: white;
+    text-align: center;
+    font-size: 12px;
+}
+
+/* @media only screen and (max-width:320px) {
+    nav {
+        text-transform: capitalize;
+    }
+}
+
+@media only screen and (min-width:321px) and (max-width:768px) {
+    nav {
+        text-transform: lowercase;
+    }
+}
+
+@media only screen and (min-width:769px) {
+    
+} */
