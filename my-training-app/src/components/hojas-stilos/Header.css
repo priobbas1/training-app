@@ -1,0 +1,17 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 7rem;
+    height: 4rem;
+}
+
+.header-menu{
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    color: #000;
+    font-size: 1.5rem;
+}
