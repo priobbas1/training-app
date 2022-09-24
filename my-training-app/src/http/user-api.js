@@ -3,15 +3,15 @@ const axios = require("axios");
 const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
 const endpoints = {
-  userEndpoint: "accounts/",
+  createAccount: "accounts/",
+  loginAccount: "auth/",
   userWorkoutsEndpoint: "workouts/",
-  login: "login/",
 };
 
 async function createAccount(data) {
   const res = await axios({
     method: "post",
-    url: apiUrl + endpoints.userEndpoint,
+    url: apiUrl + endpoints.createAccount,
     data: {
       email: data.email,
       password: data.password,
@@ -24,6 +24,23 @@ async function createAccount(data) {
       console.log(res.data);
     }
   });
+  return res.data;
 }
 
-export { createAccount };
+async function loginAccount(data) {
+  const res = await axios({
+    method: "post",
+    url: apiUrl + endpoints.loginAccount,
+    data: {
+      email: data.email,
+      password: data.password,
+    },
+  }).catch((e) => {
+    console.log(e.response?.data?.status);
+    console.log(e.response?.data?.message);
+  });
+
+  return res;
+}
+
+export { createAccount, loginAccount };

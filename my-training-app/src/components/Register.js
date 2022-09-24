@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { createAccount } from "../http/user-api";
+import { useState } from "react";
 
 const schema = yup
   .object({
@@ -25,9 +26,12 @@ function Register() {
   } = useForm({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data) => {
-    createAccount(data);
+  const onSubmit = async (data) => {
+    const res = await createAccount(data);
+    console.log(res);
   };
+
+  const [showPassword, setShowPassword] = useState(false);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -36,15 +40,29 @@ function Register() {
       <p>{errors.email?.message}</p>
 
       <label htmlFor="password">password</label>
-      <input {...register("password")} type="password"></input>
+      <input
+        {...register("password")}
+        type={showPassword ? "text" : "password"}
+      ></input>
       <p>{errors.password?.message}</p>
 
       <label htmlFor="confirm">confirm password</label>
-      <input type="password" id="confirm" {...register("confirm")} />
+      <input
+        type={showPassword ? "text" : "password"}
+        id="confirm"
+        {...register("confirm")}
+      />
       {errors.confirm && <p>Your passwords do no match</p>}
 
       <input type="submit"></input>
       <input type="reset" value="Clear" />
+
+      <button
+        onClick={() => setShowPassword(showPassword ? false : true)}
+        className="showPassword"
+      >
+        See password
+      </button>
     </form>
   );
 }

@@ -1,14 +1,21 @@
 import { useState } from "react";
-import "../hojas-stilos/Login.css";
-import hero from "../assets/images/hero_image.png";
+import { loginAccount } from "../http/user-api";
 
 export const Login = () => {
   const initialState = { email: "", password: "" };
   const [loginForm, setLoginForm] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const res = await loginAccount(loginForm);
+      if (res.status === 200) {
+        console.log(res.data[1]);
+      }
+    } catch (e) {
+      console.log(e);
+    }
   };
   const handleChange = (e, field) => {
     const modifiedData = { ...loginForm, [field]: e.target.value };
@@ -55,8 +62,6 @@ export const Login = () => {
           See password
         </button>
       </form>
-
-      <img src={hero} alt="hero" className="img" />
     </section>
   );
 };
