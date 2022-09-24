@@ -1,24 +1,7 @@
-
-import './App.css';
-
-import { Routes,Route } from "react-router-dom"
-import { Footer } from './components/Footer';
-
-import { Login } from './components/pages/Login';
-import { HomePage } from './components/pages/HomePage';
+import "./App.css";
 
 function App() {
-  return (
-    <main>
-     
-     <Routes>
-      <Route path='/' element={< HomePage/>} />
-      <Route path='/register' element={<Login />} />
-     </Routes>
-     
-     <Footer />
-    </main>
-  );
-};
+  return <h1>Saludos desde App</h1>;
+}
 
 export default App;
