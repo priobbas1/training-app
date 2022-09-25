@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { loginAccount } from "../http/user-api";
+import '../components/hojas-stilos/Login.css';
+import { Link } from "react-router-dom";
 
 export const Login = () => {
   const initialState = { email: "", password: "" };
@@ -24,44 +26,47 @@ export const Login = () => {
 
   return (
     <section>
-      <form onSubmit={handleSubmit} className="login">
-        <div className="form-group">
-          <label htmlFor="user">User</label>
+ <form onSubmit={handleSubmit} className="login">
+        
+        <label htmlFor="user">User</label>
 
-          <input
-            value={loginForm.email}
-            onChange={(e) => {
-              handleChange(e, "email");
-            }}
-            name="email"
-            id="email"
-          ></input>
-        </div>
+        <input
+          value={loginForm.email}
+          onChange={(e) => {
+            handleChange(e, "email");
+          }}
+          name="email"
+          id="email"
+        ></input>
+      
 
-        <div className="password">
-          <label htmlFor="password">Password</label>
-          <input
-            value={loginForm.password}
-            onChange={(e) => {
-              handleChange(e, "password");
-            }}
-            name="password"
-            id="password"
-            type={showPassword ? "text" : "password"}
-          ></input>
-        </div>
+      
+        <label htmlFor="password">Password</label>
+        <input
+          value={loginForm.password}
+          onChange={(e) => {
+            handleChange(e, "password");
+          }}
+          name="password"
+          id="password"
+          type={showPassword ? "text" : "password"}
+        ></input>
+      
 
-        <input type="submit" className="enviar"></input>
-        <button onClick={() => setLoginForm(initialState)} className="clear">
-          Clear
-        </button>
-        <button
-          onClick={() => setShowPassword(showPassword ? false : true)}
-          className="password"
-        >
-          See password
-        </button>
-      </form>
+      <input type="submit" className="enviar"></input>
+      <button onClick={() => setLoginForm(initialState)} className="clear">
+        Clear
+      </button>
+      <button
+        onClick={() => setShowPassword(showPassword ? false : true)}
+        className="password"
+      >
+        See password
+      </button>
+    </form>
+  
+<span><Link to={"/"}>Go to Home</Link></span>
     </section>
+     
   );
 };

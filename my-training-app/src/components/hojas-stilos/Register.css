@@ -3,8 +3,9 @@
     padding: 0;
     box-sizing: border-box;
 }
-form.login{
-   
+form.registro{
+    display: flexbox;
+    align-content: center;
     background-color: #fff;
     margin: auto;
     width: 90%;

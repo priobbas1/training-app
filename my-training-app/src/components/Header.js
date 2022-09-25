@@ -1,26 +1,28 @@
-import Logo from "./assets/images/Logo.png"
-
-import '../components/hojas-stilos/Header.css';
+import { Link } from "react-router-dom";
 
 
 
 export const Header = () => {
     return(
-        <div className="header">
-             <img src={Logo} alt="" className="logo" />
-             
-             <ul className="header-menu">
-                <li>Home</li>
-                <li>Exercises</li>
-                <li>Login</li>
-                <li>Register</li>
         
-             </ul>
+           <section> 
+<ul>
+  <li><Link to="/">Home</Link></li>
+    <li> <Link to="/register">Register</Link></li>
+    <li><Link to="/login">Login</Link></li>
+    <li><Link to="/workouts">Workouts</Link></li>
+    <li><Link to="/profile">Profile</Link></li>
+
+    </ul>
+
+           
             <nav>
                
                
             </nav>
             
-        </div>
+            </section>
+             
     );
 };
+ 

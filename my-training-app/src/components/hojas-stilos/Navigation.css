@@ -1,0 +1,31 @@
+nav.home{
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+    font-weight: bold;
+    font-size: 1.5rem;
+ 
+}
+
+img.logo{
+    display: flex;
+    justify-content: space-between;
+    
+    background-color: gray;
+}
+ul{
+    display: flex;
+    list-style: none;
+    
+}
+li{
+    margin: 2rem;
+
+   
+}
+a{
+    text-decoration: none;
+    
+    font-size: 2rem;
+}
+

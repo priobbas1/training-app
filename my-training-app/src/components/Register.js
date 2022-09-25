@@ -4,6 +4,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { createAccount } from "../http/user-api";
 import { useState } from "react";
+import '../components/hojas-stilos/Register.css';
+import { Link } from "react-router-dom";
 
 const schema = yup
   .object({
@@ -34,36 +36,45 @@ function Register() {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <label htmlFor="email">email</label>
-      <input {...register("email")}></input>
-      <p>{errors.email?.message}</p>
+    <section>
+<form onSubmit={handleSubmit(onSubmit)} className="registro" >
 
-      <label htmlFor="password">password</label>
-      <input
-        {...register("password")}
-        type={showPassword ? "text" : "password"}
-      ></input>
-      <p>{errors.password?.message}</p>
+<label htmlFor="email">email</label>
+<input {...register("email")}></input>
+<p>{errors.email?.message}</p>
 
-      <label htmlFor="confirm">confirm password</label>
-      <input
-        type={showPassword ? "text" : "password"}
-        id="confirm"
-        {...register("confirm")}
-      />
-      {errors.confirm && <p>Your passwords do no match</p>}
+<label htmlFor="password">password</label>
+<input
+  {...register("password")}
+  type={showPassword ? "text" : "password"}
+></input>
+<p>{errors.password?.message}</p>
 
-      <input type="submit"></input>
-      <input type="reset" value="Clear" />
+<label htmlFor="confirm">confirm password</label>
+<input
+  type={showPassword ? "text" : "password"}
+  id="confirm"
+  {...register("confirm")}
+/>
+{errors.confirm && <p>Your passwords do no match</p>}
 
-      <button
-        onClick={() => setShowPassword(showPassword ? false : true)}
-        className="showPassword"
-      >
-        See password
-      </button>
-    </form>
+<input type="submit"></input>
+<input type="reset" value="Clear" />
+
+<button
+  onClick={() => setShowPassword(showPassword ? false : true)}
+  className="showPassword"
+>
+  See password
+</button>
+
+</form>
+
+
+       <span><Link to={"/"}>Go to Home</Link></span>
+    </section>
+    
+    
   );
 }
 
