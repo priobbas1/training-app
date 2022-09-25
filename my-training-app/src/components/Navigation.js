@@ -1,5 +1,4 @@
 
-import '../components/hojas-stilos/Navigation.css';
 
 
 function Navigation() {

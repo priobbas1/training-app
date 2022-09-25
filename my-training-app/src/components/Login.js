@@ -65,7 +65,7 @@ export const Login = () => {
       </button>
     </form>
   
-<span><Link to={"/"}>Go to Home</Link></span>
+<span className="atras"><Link to={"/"}>Go to Home</Link></span>
     </section>
      
   );

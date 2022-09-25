@@ -1,17 +1,29 @@
-nav.home{
+body {
+    background-color:lightgray;
+    
+    
+    
+}
+
+
+
+.home{
     display: flex;
     justify-content: space-between;
     background-color: gray;
     font-weight: bold;
     font-size: 1.5rem;
+    
  
 }
+
 
 img.logo{
     display: flex;
     justify-content: space-between;
     
     background-color: gray;
+    
 }
 ul{
     display: flex;
@@ -20,12 +32,19 @@ ul{
 }
 li{
     margin: 2rem;
-
+    color: white;
    
+}
+
+ul{
+
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
 }
 a{
     text-decoration: none;
+    color: white;
     
-    font-size: 2rem;
 }
 
