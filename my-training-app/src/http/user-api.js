@@ -20,6 +20,7 @@ async function createAccount(data) {
     if (error.response) {
       console.log(error.response.data.status);
       console.log(error.response.data.message);
+      return error.response;
     } else {
       console.log(res.data);
     }

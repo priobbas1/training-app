@@ -1,11 +1,11 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-section.login {
-
+section.register{
+    display: flexbox;
+    align-content: center;
     background-color: #fff;
     margin: auto;
     width: 90%;
