@@ -6,22 +6,49 @@ import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Register from "./components/Register";
 import Root from "./components/Root";
-import { Login } from "./components/Login";
-import { Header } from "./components/Header";
+import Login from "./components/Login";
+import Workouts from "./components/Workouts";
+import { AuthProvider } from "./shared/context/authContext";
+import { NotLoggedRoute, LoggedRoute } from "./components/NotLoggedRoute";
+import { Logout } from "./components/Logout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Root />}>
-          <Route index element={<App />}></Route>
-          <Route path="/home" element={<Header />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Root />}>
+            <Route index element={<App />}></Route>
+            <Route path="/register" element={<Register />} />
+            <Route
+              path="/login"
+              element={
+                <NotLoggedRoute>
+                  <Login />
+                </NotLoggedRoute>
+              }
+            />
+            <Route
+              path="/workouts"
+              element={
+                <LoggedRoute>
+                  <Workouts />
+                </LoggedRoute>
+              }
+            />
+            <Route
+              path="/logout"
+              element={
+                <LoggedRoute>
+                  <Logout />
+                </LoggedRoute>
+              }
+            />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   </React.StrictMode>
 );
 
