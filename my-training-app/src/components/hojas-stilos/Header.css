@@ -1,35 +1,39 @@
-body {
-    background-color: lightgray;
+/* body {
+    background-color:lightgray;
 }
 
-nav.home {
+
+
+.home{
     display: flex;
     justify-content: space-between;
-    background-color: lightgray;
+    background-color: gray;
     font-weight: bold;
     font-size: 1.5rem;
 }
 
-img.logo {
+
+img.logo{
     display: flex;
     justify-content: space-between;
-    background-color: lightgray;
+    background-color: gray;
 }
-
-ul {
+ul{
     display: flex;
     list-style: none;
-    text-decoration: none;
-    color: white;
-    font-size: 2rem;
 }
-
-li {
+li{
     margin: 2rem;
     color: white;
 }
 
-a {
+ul{
     text-decoration: none;
     color: white;
+    font-size: 2rem;
 }
+a{
+    text-decoration: none;
+    color: white;
+} */
+

@@ -4,7 +4,8 @@ function Logout() {
   localStorage.removeItem("token");
   return (
     <>
-      <h1>saludos desde logout</h1>;<Link to={"/"}>Go to Home</Link>
+      <h1>SALUDOS DESDE EL LOGOUT</h1>
+      <Link to={"/"}>Go to Home</Link>
     </>
   );
 }
