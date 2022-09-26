@@ -64,9 +64,15 @@ function Login() {
 
   return (
     <>
-      <section className="login">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="email">email</label>
+     
+        <form onSubmit={handleSubmit(onSubmit)} className="form">
+
+          <h2 className="form-title">Inicia Sesion</h2>
+          <p className="form-paragraph">¿Aùn no tienes cuenta? <Link to="/register" className="form-link"> Entra aquí </Link></p>
+
+          <div className="form-container"> 
+
+          <label htmlFor="email" className="form-label">Email</label>
           <input
             {...register("email")}
             autoComplete="off"
@@ -74,35 +80,38 @@ function Login() {
           ></input>
           <p>{errors.email?.message}</p>
 
-          <label htmlFor="password">password</label>
+          <label htmlFor="password" className="form-password">Password</label>
           <input
             {...register("password")}
             type={showPassword ? "text" : "password"}
             autoComplete="off"
             placeholder="************"
           ></input>
+          </div>
           <p>{errors.password?.message}</p>
 
-          <input type="submit" value="login"></input>
-          <input
-            type="button"
+          <input type="submit" className="form-submit" value="Login" ></input>
+
+          <input type="button" className="form-clear"
             onClick={() => {
               reset({ email: "", password: "" }, { keepErrors: true });
             }}
-            value="clear"
-          />
-        </form>
+            value="Clear"
+         /> 
+        
         <button
           onClick={() => setShowPassword(showPassword ? false : true)}
-          className="password"
+          className="see"
         >
-          See password
+          See Password
         </button>
-      </section>
+        </form>
+        
+      
 
-      <span>
+      <span className="go">
         <Link to={"/"}>Go to Home</Link>
-      </span>
+      </span> 
     </>
   );
 }

@@ -4,8 +4,9 @@ import  logo  from '../components/assets/images/logo.png';
 function Navigation() {
   return (
     <nav>
-      <img src={logo} alt="logo" />
-      <ul>
+      
+      <ul className="home">
+      <img src={logo} alt="logo" className="logo" />
         <li>
           <Link to="/">Home</Link>
         </li>

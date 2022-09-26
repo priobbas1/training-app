@@ -67,27 +67,35 @@ function Register() {
 
   return (
     <>
+    
       <section className="register">
+
+      <h2 className="register-title">Registrate</h2>
+      <p className="form-paragraph"> ¿Ya tienes cuenta? <Link to="/login" className="register-link"> Pincha aquì </Link> </p>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-group">
-            <label htmlFor="email">email</label>
+
+        <div className="form-home">
+
+            <label htmlFor="email">Email</label>
+
             <input {...register("email")} autoComplete="on"></input>
             <p>{errors.email?.message}</p>
             <p>{lastResponse}</p>
-          </div>
+        
 
-          <div className="password">
-            <label htmlFor="password">password</label>
+          
+
+            <label htmlFor="password">Password</label>
             <input
               {...register("password")}
               type={showPassword ? "text" : "password"}
               autoComplete="on"
             ></input>
             <p>{errors.password?.message}</p>
-          </div>
+          
 
-          <div className="password">
-            <label htmlFor="confirm">confirm password</label>
+          
+            <label htmlFor="confirm">Confirm Password</label>
             <input
               type={showPassword ? "text" : "password"}
               id="confirm"
@@ -95,9 +103,10 @@ function Register() {
               autoComplete="on"
             />
             {errors.confirm && <p>Your passwords do no match</p>}
-          </div>
-
-          <input type="submit"></input>
+          
+            </div>
+            
+          <input type="submit" className="register-submit"></input>
           <input
             type="button"
             onClick={() => {
@@ -106,15 +115,16 @@ function Register() {
                 { keepErrors: true }
               );
             }}
-            value="clear"
+            value="Clear" className="clear"
           />
-        </form>
-        <button
+           <button
           onClick={() => setShowPassword(showPassword ? false : true)}
-          className="showPassword"
-        >
+          
+        className="seep" >
           See password
         </button>
+        </form>
+       
       </section>
 
       <span>

@@ -1,11 +1,3 @@
- body {
-    background-color:lightgray;
-    
-    
-    
-}
-
-
 
 .home{
     display: flex;
@@ -21,30 +13,27 @@
 img.logo{
     display: flex;
     justify-content: space-between;
-    
+    width: 15rem;
+    height: 4rem;
     background-color: gray;
     
+    
 }
-ul{
+ul.home{
     display: flex;
     list-style: none;
+    background-color: gray;
+    margin: 1rem;
     
 }
 li{
     margin: 2rem;
-    color: white;
-   
 }
 
-ul{
-
-    text-decoration: none;
-    color: white;
-    font-size: 2rem;
-}
 a{
     text-decoration: none;
-    color: white;
+    color: rgb(248, 248, 203);
+    
     
 }
 
