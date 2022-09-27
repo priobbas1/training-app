@@ -1,52 +1,30 @@
-import React, { useState } from "react";
-import { loginAccount } from "../../http/user-api";
+import { createContext, useEffect, useState } from "react";
 
-const parseToken = (token) => {
-  if (token) {
-    const splittedToken = token.split(".");
-    const chunkWithData = splittedToken[1];
-    return JSON.parse(atob(chunkWithData));
-  }
-  return null;
-};
+export const AuthContext = createContext(null);
 
-const AuthContext = React.createContext();
+export const AuthContextProviderComponent = ({ children }) => {
+  const [token, setToken] = useState(localStorage.getItem("token"));
+  //const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
 
-const token = localStorage.getItem("token");
-const tokenObject = parseToken(token);
+  useEffect(() => {
+    localStorage.setItem("token", token);
+    /* localStorage.setItem(
+      "user",
+      JSON.stringify({ token: token, role: "admin" })
+    ); */
+  }, [token]);
 
-function AuthProvider({ children }) {
-  const [userData, setUserData] = useState(tokenObject);
-  const [isUserLogged, setIsUserLogged] = useState(!!tokenObject);
-
-  const [isAdmin, setIsAdmin] = useState(+tokenObject?.id === 1);
-
-  const signIn = async (formData) => {
-    const token = await loginAccount(formData);
-    const tokenObject = parseToken(token.data);
-    localStorage.setItem("token", token.data);
-    setUserData(tokenObject);
-    setIsUserLogged(!!tokenObject);
-    setIsAdmin(+tokenObject?.id === 1);
-
-    console.log(token.data);
+  const logout = () => {
+    setToken("");
   };
 
-  const signOut = async () => {
-    setUserData(null);
-    setIsUserLogged(false);
-    setIsAdmin(false);
-
-    localStorage.removeItem("token");
+  const login = (token) => {
+    setToken(token);
   };
 
   return (
-    <AuthContext.Provider
-      value={{ userData, isUserLogged, isAdmin, signIn, signOut }}
-    >
+    <AuthContext.Provider value={{ token, login, logout }}>
       {children}
     </AuthContext.Provider>
   );
-}
-
-export { AuthProvider, AuthContext };
+};

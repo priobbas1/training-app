@@ -8,14 +8,14 @@ import Register from "./components/Register";
 import Root from "./components/Root";
 import Login from "./components/Login";
 import Workouts from "./components/Workouts";
-import { AuthProvider } from "./shared/context/authContext";
+import { AuthContextProviderComponent } from "./shared/context/authContext";
 import { NotLoggedRoute, LoggedRoute } from "./components/NotLoggedRoute";
 import { Logout } from "./components/Logout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
+    <AuthContextProviderComponent>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Root />}>
@@ -48,7 +48,7 @@ root.render(
           </Route>
         </Routes>
       </BrowserRouter>
-    </AuthProvider>
+    </AuthContextProviderComponent>
   </React.StrictMode>
 );
 

@@ -6,6 +6,7 @@ import { createAccount } from "../http/user-api";
 import { useEffect, useState } from "react";
 import "../components/hojas-stilos/Register.css";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup
   .object({
@@ -29,6 +30,7 @@ function Register() {
   } = useForm({
     resolver: yupResolver(schema),
   });
+  const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitSuccessful, setIsSubmitSuccessful] = useState(false);
@@ -40,7 +42,8 @@ function Register() {
       if (res.status === "201") {
         setLastResponse(201);
         console.log(res);
-        setIsSubmitSuccessful(true);
+        navigate("/login");
+        /* setIsSubmitSuccessful(true); */
       } else if (res.status === "409") {
         setLastResponse(
           "this email address is already associated with another account"
@@ -67,23 +70,23 @@ function Register() {
 
   return (
     <>
-    
       <section className="register">
-
-      <h2 className="register-title">Registrate</h2>
-      <p className="form-paragraph"> ¿Ya tienes cuenta? <Link to="/login" className="register-link"> Pincha aquì </Link> </p>
+        <h2 className="register-title">Registrate</h2>
+        <p className="form-paragraph">
+          {" "}
+          ¿Ya tienes cuenta?{" "}
+          <Link to="/login" className="register-link">
+            {" "}
+            Pincha aquì{" "}
+          </Link>{" "}
+        </p>
         <form onSubmit={handleSubmit(onSubmit)}>
-
-        <div className="form-home">
-
+          <div className="form-home">
             <label htmlFor="email">Email</label>
 
             <input {...register("email")} autoComplete="on"></input>
             <p>{errors.email?.message}</p>
             <p>{lastResponse}</p>
-        
-
-          
 
             <label htmlFor="password">Password</label>
             <input
@@ -92,9 +95,7 @@ function Register() {
               autoComplete="on"
             ></input>
             <p>{errors.password?.message}</p>
-          
 
-          
             <label htmlFor="confirm">Confirm Password</label>
             <input
               type={showPassword ? "text" : "password"}
@@ -103,9 +104,8 @@ function Register() {
               autoComplete="on"
             />
             {errors.confirm && <p>Your passwords do no match</p>}
-          
-            </div>
-            
+          </div>
+
           <input type="submit" className="register-submit"></input>
           <input
             type="button"
@@ -115,16 +115,16 @@ function Register() {
                 { keepErrors: true }
               );
             }}
-            value="Clear" className="clear"
+            value="Clear"
+            className="clear"
           />
-           <button
-          onClick={() => setShowPassword(showPassword ? false : true)}
-          
-        className="seep" >
-          See password
-        </button>
+          <button
+            onClick={() => setShowPassword(showPassword ? false : true)}
+            className="seep"
+          >
+            See password
+          </button>
         </form>
-       
       </section>
 
       <span>
