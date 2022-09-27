@@ -1,0 +1,40 @@
+
+.home{
+    display: flex;
+    justify-content: space-between;
+    background-color: gray;
+    font-weight: bold;
+    font-size: 1.5rem;
+    
+ 
+}
+
+
+img.logo{
+    display: flex;
+    justify-content: space-between;
+    width: 15rem;
+    height: 4rem;
+    background-color: gray;
+    
+    
+}
+ul.home{
+    display: flex;
+    list-style: none;
+    background-color: gray;
+    margin: 1rem;
+    
+}
+li{
+    margin: 2rem;
+}
+
+a{
+    text-decoration: none;
+    color: rgb(248, 248, 203);
+    
+    
+}
+
+ 

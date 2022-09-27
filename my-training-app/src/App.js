@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import './App.css';
 =======
@@ -33,5 +34,19 @@ function App() {
 >>>>>>> development1
   );
 };
+=======
+import "./App.css";
+import { Header} from '../src/components/Header';
+
+
+function App() {
+  return (
+  <Header />
+>>>>>>> 6a3d17718842207ce3a75c1821756634beaadf4b
+
+
+  
+  )
+}
 
 export default App;

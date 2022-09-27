@@ -1,0 +1,104 @@
+
+div.form-group{
+    display: flexbox;
+    align-content: center;
+    background-color: #fff;
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 4.5em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+}
+section.register{
+    display: flexbox;
+    align-content: center;
+    background-color: #fff;
+    margin: auto;
+    width: 90%;
+    max-width: 400px;
+    padding: 4.5em 3em;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px -5px rgb(0 0 0 / 30%);
+
+}
+div.form-home{
+    display: grid;
+    gap: 0.5rem;
+    font-size: 1rem;
+}
+form{
+    display: grid;
+    gap: 1rem;
+}
+.register-title{
+    font-size: 2.5rem;
+    margin: 2rem;
+}
+p.register-paragraph{
+    font-weight: 300;
+}
+
+.register-link{
+    font-weight: 400;
+    color: black;
+}
+
+a {
+    color: white;
+    font-size: 1.5rem;
+    
+} 
+
+    input{
+    
+    padding: 1px 6px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonborder;
+    border-image: initial;
+    font-size: 1rem;
+    }
+    form{
+        margin: 2rem;
+
+    }
+    .register-submit{
+        background: #3866f2;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            padding: .8em 0;
+            border: none;
+            border-radius: .5em
+    }
+
+    .clear{
+        background: #3866f2;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            padding: .8em 0;
+            border: none;
+            border-radius: .5em
+    }
+    
+      .seep{
+            background: #3866f2;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 300;
+            font-size: 1rem;
+            padding: .8em 0;
+            border: none;
+            border-radius: .5em
+           }
+
+
+    @media (max-width:425px){
+        .register-title{
+            font-size: 1.8rem;
+        }
+       }
