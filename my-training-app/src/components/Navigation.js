@@ -10,6 +10,12 @@ function Navigation() {
             Home
           </Link>
         </li>
+
+        <li>
+          <Link to="/exercise" className="nav-link">
+            Exercise
+          </Link>
+        </li>
         <li>
           <Link to="/register" className="nav-link">
             Register

@@ -1,8 +1,18 @@
-import Creation from "./Creation";
-import Edition from "./Edition";
+import { getWorkoutsList } from "../http/workouts-api";
 
 function Workouts() {
-  return <></>;
+  return (
+    <>
+      <button
+        onClick={async () => {
+          const res = await getWorkoutsList();
+          console.log(res);
+        }}
+      >
+        GET WORKOUTS
+      </button>
+    </>
+  );
 }
 
 export default Workouts;
