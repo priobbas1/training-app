@@ -110,9 +110,8 @@ function Register() {
           See password
         </button>
 
-        <Link to="/login" className="register-link">
-          ¿Ya tienes cuenta?
-        </Link>
+        <Link to="/login" className="register-link"> ¿Ya tienes cuenta? </Link>
+
       </section>
       <span>
         <Link to={"/"}>Go to Home</Link>
