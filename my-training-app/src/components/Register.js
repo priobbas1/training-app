@@ -4,7 +4,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { createAccount } from "../http/user-api";
 import { useEffect, useState } from "react";
-import "../components/hojas-stilos/Register.css";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
@@ -70,63 +69,51 @@ function Register() {
 
   return (
     <>
-      <section className="register">
-        <h2 className="register-title">Registrate</h2>
-        <p className="form-paragraph">
-          {" "}
-          ¿Ya tienes cuenta?{" "}
-          <Link to="/login" className="register-link">
-            {" "}
-            Pincha aquì{" "}
-          </Link>{" "}
-        </p>
+      <section className="form-container">
+        <h2>Regístrate</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="form-home">
+          <div className="field-container">
             <label htmlFor="email">Email</label>
 
-            <input {...register("email")} autoComplete="on"></input>
+            <input {...register("email")}></input>
             <p>{errors.email?.message}</p>
-            <p>{lastResponse}</p>
 
             <label htmlFor="password">Password</label>
             <input
               {...register("password")}
               type={showPassword ? "text" : "password"}
-              autoComplete="on"
+              placeholder="************"
             ></input>
             <p>{errors.password?.message}</p>
 
             <label htmlFor="confirm">Confirm Password</label>
             <input
-              type={showPassword ? "text" : "password"}
-              id="confirm"
               {...register("confirm")}
-              autoComplete="on"
+              type={showPassword ? "text" : "password"}
             />
-            {errors.confirm && <p>Your passwords do no match</p>}
+            <p>{errors.confirm && <p>your passwords do no match</p>}</p>
           </div>
 
-          <input type="submit" className="register-submit"></input>
-          <input
-            type="button"
-            onClick={() => {
-              reset(
-                { email: "", password: "", confirm: "" },
-                { keepErrors: true }
-              );
-            }}
-            value="Clear"
-            className="clear"
-          />
-          <button
-            onClick={() => setShowPassword(showPassword ? false : true)}
-            className="seep"
-          >
-            See password
-          </button>
+          <button type="submit">Sign up</button>
         </form>
-      </section>
+        <button
+          onClick={() => {
+            reset(
+              { email: "", password: "", confirm: "" },
+              { keepErrors: false }
+            );
+          }}
+        >
+          Clear
+        </button>
+        <button onClick={() => setShowPassword(showPassword ? false : true)}>
+          See password
+        </button>
 
+        <Link to="/login" className="register-link">
+          ¿Ya tienes cuenta?
+        </Link>
+      </section>
       <span>
         <Link to={"/"}>Go to Home</Link>
       </span>

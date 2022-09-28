@@ -5,10 +5,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { loginAccount } from "../http/user-api";
 import { useContext, useState } from "react";
-/* import { AuthProvider } from "../shared/context/authContext"; */
 import { useNavigate } from "react-router-dom";
-
-import "../components/hojas-stilos/Login.css";
 import { Link } from "react-router-dom";
 
 const schema = yup
@@ -40,9 +37,8 @@ function Login() {
         console.log(res.data);
         login(res.data[1].accesToken);
         navigate("/");
-
         //updateToken();
-        /* AuthProvider(); */
+        //AuthProvider();
       } else if (res.status === "400") {
         console.log(res);
       } else if (res.status === "404") {
@@ -59,60 +55,45 @@ function Login() {
 
   return (
     <>
-      <form onSubmit={handleSubmit(onSubmit)} className="form">
-        <h2 className="form-title">Inicia Sesion</h2>
-        <p className="form-paragraph">
-          ¿Aùn no tienes cuenta?{" "}
-          <Link to="/register" className="form-link">
-            {" "}
-            Entra aquí{" "}
-          </Link>
-        </p>
+      <section className="form-container">
+        <h2>Inicia Sesión</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="field-container">
+            <label htmlFor="email">Email</label>
 
-        <div className="form-container">
-          <label htmlFor="email" className="form-label">
-            Email
-          </label>
-          <input
-            {...register("email")}
-            autoComplete="off"
-            placeholder="example@mail.com"
-          ></input>
-          <p>{errors.email?.message}</p>
+            <input
+              {...register("email")}
+              placeholder="example@mail.com"
+            ></input>
+            <p>{errors.email?.message}</p>
 
-          <label htmlFor="password" className="form-password">
-            Password
-          </label>
-          <input
-            {...register("password")}
-            type={showPassword ? "text" : "password"}
-            autoComplete="off"
-            placeholder="************"
-          ></input>
-        </div>
-        <p>{errors.password?.message}</p>
+            <label htmlFor="password">Password</label>
+            <input
+              {...register("password")}
+              type={showPassword ? "text" : "password"}
+              placeholder="************"
+            ></input>
+            <p>{errors.password?.message}</p>
+          </div>
 
-        <input type="submit" className="form-submit" value="Login"></input>
-
-        <input
-          type="button"
-          className="form-clear"
-          onClick={() => {
-            reset({ email: "", password: "" }, { keepErrors: true });
-          }}
-          value="Clear"
-        />
-
-        <button
-          onClick={() => setShowPassword(showPassword ? false : true)}
-          className="see"
-        >
-          See Password
+          <button type="submit">Login</button>
+          <button
+            onClick={() => {
+              reset({ email: "", password: "" }, { keepErrors: true });
+            }}
+          >
+            Clear
+          </button>
+        </form>
+        <button onClick={() => setShowPassword(showPassword ? false : true)}>
+          Show password
         </button>
-      </form>
-
-      <span className="go">
-        <Link to={"/"}>Go to Home</Link>
+        <Link to="/register">¿Aún no estás registrado?</Link>
+      </section>
+      <span>
+        <Link to={"/"} className="home-link">
+          Go to Home
+        </Link>
       </span>
     </>
   );

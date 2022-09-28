@@ -9,7 +9,6 @@ import Root from "./components/Root";
 import Login from "./components/Login";
 import Workouts from "./components/Workouts";
 import { AuthContextProviderComponent } from "./shared/context/authContext";
-import { NotLoggedRoute, LoggedRoute } from "./components/NotLoggedRoute";
 import { Logout } from "./components/Logout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -21,30 +20,9 @@ root.render(
           <Route path="/" element={<Root />}>
             <Route index element={<App />}></Route>
             <Route path="/register" element={<Register />} />
-            <Route
-              path="/login"
-              element={
-                <NotLoggedRoute>
-                  <Login />
-                </NotLoggedRoute>
-              }
-            />
-            <Route
-              path="/workouts"
-              element={
-                <LoggedRoute>
-                  <Workouts />
-                </LoggedRoute>
-              }
-            />
-            <Route
-              path="/logout"
-              element={
-                <LoggedRoute>
-                  <Logout />
-                </LoggedRoute>
-              }
-            />
+            <Route path="/login" element={<Login />} />
+            <Route path="/workouts" element={<Workouts />} />
+            <Route path="/logout" element={<Logout />} />
           </Route>
         </Routes>
       </BrowserRouter>
