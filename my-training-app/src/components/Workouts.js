@@ -1,5 +1,8 @@
+import Creation from "./Creation";
+import Edition from "./Edition";
+
 function Workouts() {
-  return <h1>SALUDO DESDE EL WORKOUTS</h1>;
+  return <></>;
 }
 
 export default Workouts;
