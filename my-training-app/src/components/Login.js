@@ -1,45 +1,101 @@
-import { useState } from "react";
+import { useForm } from "react-hook-form";
+import { AuthContext } from "../shared/context/authContext";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { loginAccount } from "../http/user-api";
+import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+const schema = yup
+  .object({
+    email: yup.string().email().required(),
+    password: yup.string().min(3).max(30).required(),
+  })
+  .required();
 
 function Login() {
-  const initialState = { email: "", password: "" };
-  const [loginForm, setLoginForm] = useState(initialState);
+  const { login } = useContext(AuthContext);
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+  });
+
+  const navigate = useNavigate();
+
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-  const handleChange = (e, field) => {
-    const modifiedData = { ...loginForm, [field]: e.target.value };
-    setLoginForm(modifiedData);
+  const onSubmit = async (data) => {
+    try {
+      const res = await loginAccount(data);
+      if (res.status === 200) {
+        console.log(res.data);
+        login(res.data[1].accesToken);
+        navigate("/");
+        //updateToken();
+        //AuthProvider();
+      } else if (res.status === "400") {
+        console.log(res);
+      } else if (res.status === "404") {
+        console.log(res);
+      } else if (res.status === "401") {
+        console.log(res);
+      } else if (res.status === "500") {
+        console.log(res);
+      }
+    } catch (e) {
+      console.error(e);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="user">user</label>
-      <input
-        value={loginForm.email}
-        onChange={(e) => {
-          handleChange(e, "email");
-        }}
-        name="email"
-        id="email"
-      ></input>
-      <label htmlFor="password">password</label>
-      <input
-        value={loginForm.password}
-        onChange={(e) => {
-          handleChange(e, "password");
-        }}
-        name="password"
-        id="password"
-        type={showPassword ? "text" : "password"}
-      ></input>
-      <input type="submit"></input>
-      <button onClick={() => setLoginForm(initialState)}>Clear</button>
-      <button onClick={() => setShowPassword(showPassword ? false : true)}>
-        See password
-      </button>
-    </form>
+    <>
+      <section className="form-container">
+        <h2>Inicia Sesión</h2>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <div className="field-container">
+            <label htmlFor="email">Email</label>
+
+            <input
+              {...register("email")}
+              placeholder="example@mail.com"
+            ></input>
+            <p>{errors.email?.message}</p>
+
+            <label htmlFor="password">Password</label>
+            <input
+              {...register("password")}
+              type={showPassword ? "text" : "password"}
+              placeholder="************"
+            ></input>
+            <p>{errors.password?.message}</p>
+          </div>
+
+          <button type="submit">Login</button>
+          <button
+            onClick={() => {
+              reset({ email: "", password: "" }, { keepErrors: true });
+            }}
+          >
+            Clear
+          </button>
+        </form>
+        <button onClick={() => setShowPassword(showPassword ? false : true)}>
+          Show password
+        </button>
+        <Link to="/register">¿Aún no estás registrado?</Link>
+      </section>
+      <span>
+        <Link to={"/"} className="home-link">
+          Go to Home
+        </Link>
+      </span>
+    </>
   );
 }
 
