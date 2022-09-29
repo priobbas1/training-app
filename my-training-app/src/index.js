@@ -10,8 +10,9 @@ import Login from "./components/Login";
 import Workouts from "./components/Workouts";
 import { AuthContextProviderComponent } from "./shared/context/authContext";
 import { Logout } from "./components/Logout";
-import Exercise from "./components/Exercise";
 import Creation from "./components/Creation";
+import Exercise from "./components/Exercise";
+import WorkoutsList from "./components/WorkoutsList";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -23,9 +24,9 @@ root.render(
             <Route index element={<App />}></Route>
             <Route path="/register" element={<Register />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/workouts" element={<Workouts />} />
+            <Route path="/workouts" element={<WorkoutsList />} />
             <Route path="/logout" element={<Logout />} />
-            <Route path="/exercise" element={<Exercise />} />
+            <Route path="/exercises" element={<Exercise />} />
             <Route path="/create" element={<Creation />} />
           </Route>
         </Routes>

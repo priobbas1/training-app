@@ -4,7 +4,7 @@ const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
 export const endpoints = {
   getWorkoutsList: "workouts/",
-  getWorkoutDetails: "workouts/",
+  getWorkoutsDetails: "workouts/",
   createWorkout: "workout/",
   deleteWorkout: "workouts/",
 };
@@ -37,7 +37,7 @@ async function getWorkoutDetails(id) {
 
   const res = await axios({
     method: "get",
-    url: apiUrl + endpoints.getWorkoutsDetails + id,
+    url: apiUrl + endpoints.getWorkoutsDetails + 1,
     headers: headers,
   }).catch((error) => {
     console.log(error);
@@ -78,9 +78,11 @@ async function deleteWorkout(id) {
     Authorization: `Bearer ${token}`,
   };
 
+  const parseId = parseInt(id);
+
   const res = await axios({
     method: "delete",
-    url: apiUrl + endpoints.getWorkoutsList + id,
+    url: apiUrl + "workouts/" + 7,
     headers: headers,
   }).catch((error) => {
     console.log(error);
@@ -98,7 +100,7 @@ async function likeWorkout(id) {
 
   const res = await axios({
     method: "post",
-    url: apiUrl + "workout/" + 6 + "/like",
+    url: apiUrl + "workout/" + 1 + "/like",
     headers: headers,
   }).catch((error) => {
     console.log(error);
@@ -110,13 +112,13 @@ async function dislikeWorkout(id) {
   const token = localStorage.getItem("token");
 
   let headers = {
-    "Content-Type": "application/json;charset=UTF-8",
+    "Content-Type": "application/jshon;charset=UTF-8",
     Authorization: `Bearer ${token}`,
   };
 
   const res = await axios({
     method: "delete",
-    url: apiUrl + "workout/" + 6 + "/like",
+    url: apiUrl + "workout/" + 1 + "/like",
     headers: headers,
   }).catch((error) => {
     console.log(error);

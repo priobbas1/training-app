@@ -29,7 +29,7 @@ function Workouts() {
       </button>
       <button
         onClick={async () => {
-          const res = await deleteWorkout(4);
+          const res = await deleteWorkout(3);
           console.log(res);
         }}
       >

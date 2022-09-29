@@ -74,8 +74,7 @@ function Register() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="field-container">
             <label htmlFor="email">Email</label>
-
-            <input {...register("email")}></input>
+            <input {...register("email")} autoComplete="off"></input>
             <p>{errors.email?.message}</p>
 
             <label htmlFor="password">Password</label>
@@ -83,6 +82,7 @@ function Register() {
               {...register("password")}
               type={showPassword ? "text" : "password"}
               placeholder="************"
+              autoComplete="off"
             ></input>
             <p>{errors.password?.message}</p>
 
@@ -90,6 +90,7 @@ function Register() {
             <input
               {...register("confirm")}
               type={showPassword ? "text" : "password"}
+              autoComplete="off"
             />
             <p>{errors.confirm && <p>your passwords do no match</p>}</p>
           </div>
@@ -110,8 +111,10 @@ function Register() {
           See password
         </button>
 
-        <Link to="/login" className="register-link"> ¿Ya tienes cuenta? </Link>
-
+        <Link to="/login" className="register-link">
+          {" "}
+          ¿Ya tienes cuenta?{" "}
+        </Link>
       </section>
       <span>
         <Link to={"/"}>Go to Home</Link>
