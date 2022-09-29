@@ -23,21 +23,10 @@ function Creation() {
     resolver: yupResolver(schema),
   } */);
 
-  const onSubmit = async (data) => {
+  const onSubmit = async (form) => {
     try {
-      console.log(data);
-      const res = await createWorkout(data);
-      if (res.status === 200) {
-        console.log(res.data);
-      } else if (res.status === "400") {
-        console.log(res);
-      } else if (res.status === "404") {
-        console.log(res);
-      } else if (res.status === "401") {
-        console.log(res);
-      } else if (res.status === "500") {
-        console.log(res);
-      }
+      console.log(form);
+      const res = await createWorkout(form);
     } catch (e) {
       console.error(e);
     }
@@ -54,19 +43,19 @@ function Creation() {
 
             <label htmlFor="description">Description</label>
             <input {...register("description")}></input>
-            <p>{errors.password?.message}</p>
+            <p>{errors.description?.message}</p>
 
             <label htmlFor="image">Image</label>
             <input {...register("image")} type="file"></input>
-            <p>{errors.password?.message}</p>
+            <p>{errors.image?.message}</p>
 
             <label htmlFor="typology">Typology</label>
             <input {...register("typology")}></input>
-            <p>{errors.password?.message}</p>
+            <p>{errors.typology?.message}</p>
 
             <label htmlFor="muscle">Muscle</label>
             <input {...register("muscle")}></input>
-            <p>{errors.password?.message}</p>
+            <p>{errors.muscle?.message}</p>
           </div>
 
           <button type="submit">Create</button>
@@ -76,7 +65,7 @@ function Creation() {
                 {
                   name: "",
                   description: "",
-                  image: "",
+                  file: "",
                   typology: "",
                   muscle: "",
                 },

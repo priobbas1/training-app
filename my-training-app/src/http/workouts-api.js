@@ -4,9 +4,9 @@ const apiUrl = process.env.REACT_APP_BACKEND_URL;
 
 export const endpoints = {
   getWorkoutsList: "workouts/",
-  getWorkoutDetails: "workouts/:id/",
-  userWorkoutsEndpoint: "workouts/:id",
+  getWorkoutDetails: "workouts/",
   createWorkout: "workout/",
+  deleteWorkout: "workouts/",
 };
 
 async function getWorkoutsList() {
@@ -21,98 +21,140 @@ async function getWorkoutsList() {
     method: "get",
     url: apiUrl + endpoints.getWorkoutsList,
     headers: headers,
-  }).catch(function (error) {
-    if (error.response) {
-      console.log(error);
-      return error.response;
-    } else {
-      console.log(res.data);
-    }
+  }).catch((error) => {
+    console.log(error);
   });
   return res.data;
 }
-//main
-async function createWorkout(data) {
-  /*  const { name, description, typology, muscle } = data; */
-  /* axios.defaults.headers.post["Authorization"] = `Bearer ${localStorage.getItem(
-    "token"
-  )}`; */
+
+async function getWorkoutDetails(id) {
+  const token = localStorage.getItem("token");
+
+  let headers = {
+    "Content-Type": "application/json;charset=UTF-8",
+    Authorization: `Bearer ${token}`,
+  };
+
+  const res = await axios({
+    method: "get",
+    url: apiUrl + endpoints.getWorkoutsDetails + id,
+    headers: headers,
+  }).catch((error) => {
+    console.log(error);
+  });
+  return res.data;
+}
+
+async function createWorkout(form) {
+  const data = new FormData();
+  data.append("name", form.name);
+  data.append("description", form.description);
+  data.append("image", form.image[0]);
+  data.append("typology", form.typology);
+  data.append("muscle", form.muscle);
 
   const token = localStorage.getItem("token");
-  const headers = new Headers({ "Content-Type": "application/json" });
-
-  if (token) {
-    headers.append("Authorization", token);
-  }
-
-  let formData = new FormData({ ...data });
-  formData.append("file", data.image[0], data.image[0].name);
-
-  console.log(data.image[0].name);
+  let headers = {
+    "Content-Type": "multipart/form-data",
+    Authorization: `Bearer ${token}`,
+  };
 
   const res = await axios({
     method: "post",
     url: apiUrl + endpoints.createWorkout,
-    formData,
-    /* data: {
-      name: data.name,
-      description: data.description,
-      file: data.image[0].name,
-      typology: data.typology,
-      muscle: data.muscle,
-    }, */
-  }).catch(function (error) {
-    if (error.response) {
-      console.log(error);
-      //main
-      console.log(error.response.data.message);
-      return error.response;
-    } else {
-      console.log(res.data);
-    }
+    headers: headers,
+    data,
+  }).catch((error) => {
+    console.log(error);
   });
   return res.data;
 }
 
-//development2
-/* async function getWorkoutDetails(data) {
-  const res = await axios({
-    method: "get",
-    url: apiUrl + endpoints.getWorkoutDetails,
-    data: {
-      id:data.id
-      
-    },
-  }).catch((e) => {
-    console.log(e.response?.data?.status);
-    console.log(e.response?.data?.message);
-  });
+async function deleteWorkout(id) {
+  const token = localStorage.getItem("token");
 
-  return res;
-} */
-/* async function userWorkoutsEndpoint(data) {
-  const res = await axios({
-    method: "get",
-    url: apiUrl + endpoints.userWorkoutsEndpoint,
-    data: {
-      id:data.id
-      
-    },
-  }).catch((e) => {
-    console.log(e.response?.data?.status);
-    console.log(e.response?.data?.message);
-  });
+  let headers = {
+    "Content-Type": "application/json;charset=UTF-8",
+    Authorization: `Bearer ${token}`,
+  };
 
-  return res;
-} */
+  const res = await axios({
+    method: "delete",
+    url: apiUrl + endpoints.getWorkoutsList + id,
+    headers: headers,
+  }).catch((error) => {
+    console.log(error);
+  });
+  return res.data;
+}
+
+async function likeWorkout(id) {
+  const token = localStorage.getItem("token");
+
+  let headers = {
+    "Content-Type": "application/json;charset=UTF-8",
+    Authorization: `Bearer ${token}`,
+  };
+
+  const res = await axios({
+    method: "post",
+    url: apiUrl + "workout/" + 6 + "/like",
+    headers: headers,
+  }).catch((error) => {
+    console.log(error);
+  });
+  return res.data;
+}
+
+async function dislikeWorkout(id) {
+  const token = localStorage.getItem("token");
+
+  let headers = {
+    "Content-Type": "application/json;charset=UTF-8",
+    Authorization: `Bearer ${token}`,
+  };
+
+  const res = await axios({
+    method: "delete",
+    url: apiUrl + "workout/" + 6 + "/like",
+    headers: headers,
+  }).catch((error) => {
+    console.log(error);
+  });
+  return res.data;
+}
+
+async function editWorkout(form) {
+  const data = new FormData();
+  data.append("name", form.name);
+  data.append("description", form.description);
+  data.append("image", form.image[0]);
+  data.append("typology", form.typology);
+  data.append("muscle", form.muscle);
+
+  const token = localStorage.getItem("token");
+  let headers = {
+    "Content-Type": "multipart/form-data",
+    Authorization: `Bearer ${token}`,
+  };
+
+  const res = await axios({
+    method: "patch",
+    url: apiUrl + "workout/" + 6,
+    headers: headers,
+    data,
+  }).catch((error) => {
+    console.log(error);
+  });
+  return res.data;
+}
 
 export {
   getWorkoutsList,
-  /* getWorkoutDetails, */
-  /* userWorkoutsEndpoint, */
+  getWorkoutDetails,
   createWorkout,
+  deleteWorkout,
+  likeWorkout,
+  dislikeWorkout,
+  editWorkout,
 };
-/* axios
-  .post(url, data, config)
-  .then((res) => console.log(res))
-  .catch((err) => console.log(err)); */
