@@ -62,6 +62,7 @@ function Login() {
             <input
               {...register("email")}
               placeholder="example@mail.com"
+              autoComplete="off"
             ></input>
             <p>{errors.email?.message}</p>
 
@@ -70,6 +71,7 @@ function Login() {
               {...register("password")}
               type={showPassword ? "text" : "password"}
               placeholder="************"
+              autoComplete="off"
             ></input>
             <p>{errors.password?.message}</p>
           </div>
