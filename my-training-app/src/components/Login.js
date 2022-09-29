@@ -59,7 +59,6 @@ function Login() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="field-container">
             <label htmlFor="email">Email</label>
-
             <input
               {...register("email")}
               placeholder="example@mail.com"

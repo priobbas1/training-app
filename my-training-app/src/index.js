@@ -11,6 +11,7 @@ import Workouts from "./components/Workouts";
 import { AuthContextProviderComponent } from "./shared/context/authContext";
 import { Logout } from "./components/Logout";
 import Exercise from "./components/Exercise";
+import Creation from "./components/Creation";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -25,6 +26,7 @@ root.render(
             <Route path="/workouts" element={<Workouts />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/exercise" element={<Exercise />} />
+            <Route path="/create" element={<Creation />} />
           </Route>
         </Routes>
       </BrowserRouter>
