@@ -1,251 +1,128 @@
+import { useNavigate } from "react-router-dom";
+import image from "./assets/workout-images/farmers-carry.gif";
+
+import "./WorkoutsList.css";
+
 function WorkoutsList() {
+  const navigate = useNavigate();
   return (
-    <main>
-      <section>
-        <header className="sectionHeader">
-          <h1>Workouts</h1>
-        </header>
-        <ul className="workoutsList">
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
+    <main className="workouts-list">
+      <h1 className="workouts-list">Workouts</h1>
+      <ul className="workout-list">
+        <li className="workout-list">
+          <section className="workout-list">
+            <article className="workout-list">
+              <img
+                className="workout-gif"
+                src={image}
+                title="Farmer's Carry"
+                alt="displaying Farmer's Carry workout"
+              />
+              <h2 className="workout-name">Farmer's Carry</h2>
+              <h3 className="workout-muscle">full body workout</h3>
+              <button onClick={() => navigate("/create")}></button>
             </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
+          </section>
+        </li>
+        <li className="workout-list">
+          <section className="workout-list">
+            <article className="workout-list">
+              <img
+                className="workout-gif"
+                src={image}
+                title="Farmer's Carry"
+                alt="displaying Farmer's Carry workout"
+              />
+              <h2 className="workout-name">Farmer's Carry</h2>
+              <h3 className="workout-muscle">full body workout</h3>
             </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
+          </section>
+        </li>
+        <li className="workout-list">
+          <section className="workout-list">
+            <article className="workout-list">
+              <img
+                className="workout-gif"
+                src={image}
+                title="Farmer's Carry"
+                alt="displaying Farmer's Carry workout"
+              />
+              <h2 className="workout-name">Farmer's Carry</h2>
+              <h3 className="workout-muscle">full body workout</h3>
             </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
+          </section>
+        </li>
+        <li className="workout-list">
+          <section className="workout-list">
+            <article className="workout-list">
+              <img
+                className="workout-gif"
+                src={image}
+                title="Farmer's Carry"
+                alt="displaying Farmer's Carry workout"
+              />
+              <h2 className="workout-name">Farmer's Carry</h2>
+              <h3 className="workout-muscle">full body workout</h3>
             </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
+          </section>
+        </li>
+        <li className="workout-list">
+          <section className="workout-list">
+            <article className="workout-list">
+              <img
+                className="workout-gif"
+                src={image}
+                title="Farmer's Carry"
+                alt="displaying Farmer's Carry workout"
+              />
+              <h2 className="workout-name">Farmer's Carry</h2>
+              <h3 className="workout-muscle">full body workout</h3>
             </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
+          </section>
+        </li>
+        <li className="workout-list">
+          <section className="workout-list">
+            <article className="workout-list">
+              <img
+                className="workout-gif"
+                src={image}
+                title="Farmer's Carry"
+                alt="displaying Farmer's Carry workout"
+              />
+              <h2 className="workout-name">Farmer's Carry</h2>
+              <h3 className="workout-muscle">full body workout</h3>
             </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
+          </section>
+        </li>
+        <li className="workout-list">
+          <section className="workout-list">
+            <article className="workout-list">
+              <img
+                className="workout-gif"
+                src={image}
+                title="Farmer's Carry"
+                alt="displaying Farmer's Carry workout"
+              />
+              <h2 className="workout-name">Farmer's Carry</h2>
+              <h3 className="workout-muscle">full body workout</h3>
             </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
+          </section>
+        </li>
+        <li className="workout-list">
+          <section className="workout-list">
+            <article className="workout-list">
+              <img
+                className="workout-gif"
+                src={image}
+                title="Farmer's Carry"
+                alt="displaying Farmer's Carry workout"
+              />
+              <h2 className="workout-name">Farmer's Carry</h2>
+              <h3 className="workout-muscle">full body workout</h3>
             </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
-            </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
-            </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
-            </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
-            </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
-            </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
-            </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
-            </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
-            </article>
-          </li>
-          <li className="workoutElement">
-            <article>
-              <h2>Farmer's Carry</h2>
-              <p>
-                take short and quick steps forward for a set distance holding
-                the dumbells. lower the dumbells down to the floor, take a short
-                break and repeat on the way back
-              </p>
-              <h3>typology</h3>
-              <p>dumbell</p>
-              <h4>muscle</h4>
-              <p>full body workout</p>
-            </article>
-          </li>
-        </ul>
-      </section>
+          </section>
+        </li>
+      </ul>
     </main>
   );
 }

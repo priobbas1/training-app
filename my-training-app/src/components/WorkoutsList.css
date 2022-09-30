@@ -1,0 +1,113 @@
+main {
+    width: 100%;
+}
+ul.workout-list {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 6%;
+    background-color: red;
+    padding: 1rem;
+}
+
+li.workout-list{
+    list-style: none;
+}
+section.workout-list {
+    background-color: rgb(106, 255, 0);
+    padding: 1rem;
+    margin: 1rem;
+    width: fit-content;
+}
+
+article.workout-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(0, 200, 255);
+    padding: 1rem;
+    margin: 1rem;
+    width: fit-content;
+}
+
+h2.workout-name{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+h3.workout-muscle {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+img.workout-gif {
+    width: 80%;
+    height: auto;
+    border-radius: 2rem;
+}
+
+/*section.workout-list {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 12px;
+    background-color: #ffffffe2;
+    width: fit-content;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+h2{
+    color: black;
+}
+
+
+/* 
+main.workouts-list{
+    width:100%;
+}
+
+article.workout-list{
+    display: flex;
+    flex-direction: row;
+}
+
+img.workout-gif {
+    width: 60%;
+    height: auto;
+    border-radius: 2rem;
+}
+
+h2.workout-name{
+    display: block;
+    flex-grow: 1;
+    color: black;
+}
+
+h3.workout-muscle{
+    display: block;
+    flex-grow: 1;
+    color: black;
+}
+ul.workout-list{
+    width: 60%;
+    display: grid;
+    align-items: center;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, 200px);
+    margin: 4rem;
+}
+
+li.workout-list {
+    width: 90%;
+    display: flex;
+    align-items: center;
+} */

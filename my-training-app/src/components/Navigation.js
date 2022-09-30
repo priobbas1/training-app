@@ -5,34 +5,34 @@ function Navigation() {
   return (
     <nav>
       <ul>
-        <li>
+        <li className="nav-element">
           <Link to="/" className="nav-link">
-            Home
+            <span>Home</span>
           </Link>
         </li>
 
-        <li>
+        <li className="nav-element">
           <Link to="/exercise" className="nav-link">
             Exercise
           </Link>
         </li>
-        <li>
+        <li className="nav-element">
           <Link to="/register" className="nav-link">
             Register
           </Link>
         </li>
-        <li>
+        <li className="nav-element">
           <Link to="/login" className="nav-link">
             Login
           </Link>
         </li>
-        <li>
+        <li className="nav-element">
           <Link to="/workouts" className="nav-link">
             Workouts
           </Link>
         </li>
 
-        <li>
+        <li className="nav-element">
           <Link to="/logout" className="nav-link">
             Logout
           </Link>

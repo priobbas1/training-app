@@ -55,7 +55,7 @@ function Login() {
   return (
     <>
       <section className="form-container">
-        <h2>Inicia Sesión</h2>
+        <h2 className="form-title">Inicia Sesión</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="field-container">
             <label htmlFor="email">Email</label>

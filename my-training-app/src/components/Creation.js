@@ -34,7 +34,7 @@ function Creation() {
   return (
     <>
       <section className="form-container">
-        <h2>Create Workout</h2>
+        <h2 className="form-title">Create Workout</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="field-container">
             <label htmlFor="name">Name</label>

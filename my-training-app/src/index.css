@@ -77,10 +77,10 @@ nav > ul {
     margin: rem;
 }
 
-li {
+li.nav-element {
     padding: 0.4rem;
     padding-right: 2rem;
-    color: black;
+    color: white;
     list-style: none;
 }
 
@@ -112,7 +112,7 @@ li {
     border-radius: 1rem;
 } */
 
-h2{
+h2.form-title{
     font-size: 2rem;
     text-align: center;
     /* margin-top: 4rem; */
@@ -134,15 +134,12 @@ section > a {
 }
 
 .form-container > a:hover {
-    color: rgb(19, 23, 140);
-    
+    color: rgb(19, 23, 140);   
 }
 
 .field-container {
     margin-top: 2rem;
     margin-bottom: 2rem;
-    
-     
 }
 
 .field-container > input {
@@ -187,14 +184,6 @@ a:link {
     color: black;
     margin: 5rem;
     padding: 0;
-}
-
-article {
-    padding: 1rem;
-    border-radius: 1rem;
-    font-size: 12px;
-    background-color: #424242b2;
-    width: 100%;
 }
 
 footer{
