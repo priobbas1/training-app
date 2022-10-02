@@ -70,7 +70,7 @@ function Register() {
   return (
     <>
       <section className="form-container">
-        <h2>Regístrate</h2>
+        <h2 className="form-title">Regístrate</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="field-container">
             <label htmlFor="email">Email</label>
