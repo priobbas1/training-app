@@ -17,7 +17,7 @@
 
 .wrap{
     width: 100%;
-    height: 60vw;
+    height: 70vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -127,8 +127,8 @@ p{
 
 section > a {
     font-weight: 400;
-    color: white;
-    font-size: 2rem;
+    color: black;
+    font-size: 1rem;
     display: flex;
     align-items: baseline;
 }
@@ -137,9 +137,13 @@ section > a {
     color: rgb(19, 23, 140);   
 }
 
-.field-container {
+.field-container
     margin-top: 2rem;
     margin-bottom: 2rem;
+display:flex;
+flex-wrap: wrap;
+margin: 1rem;
+   
 }
 
 .field-container > input {
@@ -156,7 +160,9 @@ section > a {
 }
 
 button {
-    width: 100%;
+    display: grid;
+    gap: 1rem;
+    width: 60%;
     background: #3866f2; 
     color: rgb(255, 255, 255);
     font-family: 'Roboto', sans-serif;
@@ -167,7 +173,7 @@ button {
     border-radius: .5em;
     cursor: pointer;
     margin: 0.5rem;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
 }
 
 button:hover {
@@ -193,11 +199,18 @@ footer{
     color: white;
 }
 
-@media only screen and (max-width: 767px) {
+@media screen and (max-width: 1200px) and (min-width:400) {
 
-    body, img.fondo {
-    
-    background-image: url(./components/assets/images/fondo.jpg);
-    
+    body{
+        width: 100%;
+      
     }
-};
+    div.wrap{
+        height: 150vw;
+        background-image: url(./components/assets/images/fondo.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+}
+
+   
