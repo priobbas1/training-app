@@ -24,7 +24,7 @@ async function getWorkoutsList() {
   }).catch((error) => {
     console.log(error);
   });
-  return res.data;
+  return res;
 }
 
 async function getWorkoutDetails(id) {

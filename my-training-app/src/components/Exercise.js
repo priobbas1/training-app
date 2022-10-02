@@ -1,9 +1,9 @@
 //import React, { useEffect, useState  } from "react";
 //import { exercisesOptions, fetchData } from "../fetchData/fetchData";
 
-import { useEffect } from "react";
+/* import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getWorkoutsList } from "../http/workouts-api";
+import { getWorkoutsList } from "../http/workouts-api"; */
 
 /* useEffect(() => {
     const fetchExercisesData = async () => {
@@ -13,7 +13,7 @@ import { getWorkoutsList } from "../http/workouts-api";
       }else {
         exercisesData = await fetchData('https://localhost:400/api/workouts/')
       } */
-function Exercise() {
+/* function Exercise() {
   useEffect(() => {
     const getWorkouts = async () => {
       const res = await getWorkoutsList();
@@ -29,4 +29,4 @@ function Exercise() {
     </section>
   );
 }
-export default Exercise;
+export default Exercise; */
