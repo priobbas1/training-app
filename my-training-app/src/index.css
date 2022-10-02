@@ -223,7 +223,7 @@ footer{
         }
         .wrap{
             flex-direction: column;
-            height: 70vw;
+           
             background-size: cover;
             background-position: center;
 
@@ -233,11 +233,17 @@ footer{
 
     
 }
-@media only screen and (min-width: 768px){
-    .root{
+@media screen and (max-width: 1200px) and (min-width:400) {
+
+    body{
         width: 100%;
-        
-        
+      
+    }
+    div.wrap{
+        height: 150vw;
+        background-image: url(./components/assets/images/fondo.jpg);
+        background-size: contain;
+        background-repeat: no-repeat;
     }
 }
 
