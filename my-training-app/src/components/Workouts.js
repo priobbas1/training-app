@@ -7,7 +7,7 @@ function Workouts() {
   const { workouts, loadWorkouts } = useWorkouts();
   useEffect(() => {
     loadWorkouts();
-  }, []);
+  },);
   return (
     <main className="workouts-list">
       <h1 className="workouts-list">Workouts</h1>
