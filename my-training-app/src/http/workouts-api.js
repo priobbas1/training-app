@@ -71,7 +71,7 @@ async function createWorkout(form) {
   return res.data;
 }
 
-async function deleteWorkout(id) {
+async function deleteWorkout(workoutId) {
   const token = localStorage.getItem("token");
 
   let headers = {
@@ -79,11 +79,11 @@ async function deleteWorkout(id) {
     Authorization: `Bearer ${token}`,
   };
 
-  const parseId = parseInt(id);
+  //const parseId = parseInt(id);
 
   const res = await axios({
     method: "delete",
-    url: apiUrl + "workouts/" + 7,
+    url: `${apiUrl}workout/+${workoutId}`,
     headers: headers,
   }).catch((error) => {
     console.log(error);
@@ -143,8 +143,8 @@ async function editWorkout(form, workoutId) {
 
   const res = await axios({
     method: "patch",
-    url: apiUrl + "workout/" + 1,
-    //url: `${apiUrl}workout/+${workoutId}`,
+    //url: apiUrl + "workout/" + 1,
+    url: `${apiUrl}workout/+${workoutId}`,
     headers: headers,
     data,
   }).catch((error) => {
