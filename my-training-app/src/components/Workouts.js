@@ -27,6 +27,8 @@ function Workouts() {
           </svg>
         </button>
       </Link>
+
+      
       {workouts ? (
         <WorkoutsList workouts={workouts.data}></WorkoutsList>
       ) : (
