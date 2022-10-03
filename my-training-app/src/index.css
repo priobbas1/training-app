@@ -12,17 +12,20 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* background-color: black; */
     /* justify-content: center; */
 }
 
 .wrap{
-    width: 100%;
-    height: 70vw;
+    width: 100vw;
+    height: 60vw;
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: black;
     background: url(./components/assets/images/fondo.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
 
 }
@@ -30,7 +33,7 @@
     color: white;
     text-align: center;
     width: 50%;
-    font-size: 2rem;
+    font-size: 42px;
 }
 
 /* html{
@@ -45,6 +48,12 @@ main{
     align-items: center; 
     justify-content: center; 
 } */
+main{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
 
 .home {
     display: flex;
@@ -66,7 +75,7 @@ nav {
     font-weight: bold;
     font-size: min(3vw, 2rem); 
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
 }
 
 nav > ul {
@@ -96,7 +105,10 @@ li.nav-element {
     border-radius: 5px;
     box-shadow: 0 5px -5px rgb(0 0 0 / 30%);
     display: grid;
-    gap: 0.5em; 
+    gap: 0.5em;
+    border-style:solid;
+    border-width: 1px;
+    border-color: black; 
 }
 
 /* h1 {
@@ -137,13 +149,9 @@ section > a {
     color: rgb(19, 23, 140);   
 }
 
-.field-container
+.field-container{
     margin-top: 2rem;
-    margin-bottom: 2rem;
-display:flex;
-flex-wrap: wrap;
-margin: 1rem;
-   
+    margin-bottom: 2rem; 
 }
 
 .field-container > input {
@@ -160,10 +168,8 @@ margin: 1rem;
 }
 
 button {
-    display: grid;
-    gap: 1rem;
-    width: 60%;
-    background: #3866f2; 
+    width: 100%;
+    background: #3866f2;
     color: rgb(255, 255, 255);
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
@@ -173,7 +179,7 @@ button {
     border-radius: .5em;
     cursor: pointer;
     margin: 0.5rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
 }
 
 button:hover {
@@ -198,12 +204,16 @@ footer{
     width: 100%;
     color: white;
 }
+@media screen and (max-width: 400px) {
+.home {
+        justify-content: center;
+    }
+}
 
-@media screen and (max-width: 1200px) and (min-width:400) {
+@media screen and (max-width: 1200px) and (min-width:400px) {
 
     body{
-        width: 100%;
-      
+        width: 100%;    
     }
     div.wrap{
         height: 150vw;
@@ -211,6 +221,11 @@ footer{
         background-size: contain;
         background-repeat: no-repeat;
     }
-}
+    .home{
+            justify-content: center;
+    }
+} 
 
-   
+@media screen and (min-width: 1200px) {
+
+}

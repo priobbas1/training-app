@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { createWorkout } from "../http/workouts-api";
+import { editWorkout } from "../http/workouts-api";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
@@ -10,10 +10,12 @@ const schema = yup
   .object({
     name: yup.string().email().required(),
     description: yup.string().min(3).max(30).required(),
+    typology: yup.string().min(3).max(30).required(),
+    muscle: yup.string().min(3).max(60).required(),
   })
   .required();
 
-function Creation() {
+function EditWorkout() {
   const {
     register,
     reset,
@@ -23,10 +25,12 @@ function Creation() {
     resolver: yupResolver(schema),
   } */);
 
+  //const { workoutId, useWorkoutId } = useWorkoutId();
+
   const onSubmit = async (form) => {
     try {
-      console.log(form);
-      const res = await createWorkout(form);
+      //console.log(workoutId);
+      const res = await editWorkout(form);
     } catch (e) {
       console.error(e);
     }
@@ -34,7 +38,7 @@ function Creation() {
   return (
     <>
       <section className="form-container">
-        <h2 className="form-title">Create Workout</h2>
+        <h2 className="form-title">Edit Workout</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="field-container">
             <label htmlFor="name">Name</label>
@@ -58,7 +62,7 @@ function Creation() {
             <p>{errors.muscle?.message}</p>
           </div>
 
-          <button type="submit">Create</button>
+          <button type="submit">Edit</button>
           <button
             onClick={() => {
               reset(
@@ -86,4 +90,4 @@ function Creation() {
   );
 }
 
-export default Creation;
+export default EditWorkout;

@@ -10,25 +10,31 @@ import Login from "./components/Login";
 import Workouts from "./components/Workouts";
 import { AuthContextProviderComponent } from "./shared/context/authContext";
 import { Logout } from "./components/Logout";
-import Creation from "./components/Creation";
-import Exercise from "./components/Exercise";
+import CreateWorkout from "./components/CreateWorkout";
+import EditWorkout from "./components/EditWorkout";
+import { WorkoutContextProviderComponent } from "./shared/context/workoutContext";
+import SearchWorkout from "./components/SearchWorkout";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AuthContextProviderComponent>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Root />}>
-            <Route index element={<App />}></Route>
-            <Route path="/register" element={<Register />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/workouts" element={<Workouts />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/create" element={<Creation />} />
-          </Route>
-        </Routes>
-      </BrowserRouter>
+      <WorkoutContextProviderComponent>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Root />}>
+              <Route index element={<App />}></Route>
+              <Route path="/register" element={<Register />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/workouts" element={<Workouts />} />
+              <Route path="/logout" element={<Logout />} />
+              <Route path="/create" element={<CreateWorkout />} />
+              <Route path="/edit" element={<EditWorkout />} />
+              <Route path="/search" element={<SearchWorkout />} />
+            </Route>
+          </Routes>
+        </BrowserRouter>
+      </WorkoutContextProviderComponent>
     </AuthContextProviderComponent>
   </React.StrictMode>
 );

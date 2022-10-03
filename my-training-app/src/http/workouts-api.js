@@ -7,6 +7,7 @@ export const endpoints = {
   getWorkoutsDetails: "workouts/",
   createWorkout: "workout/",
   deleteWorkout: "workouts/",
+  searchWorkout: "workout/",
 };
 
 async function getWorkoutsList() {
@@ -126,7 +127,7 @@ async function dislikeWorkout(id) {
   return res.data;
 }
 
-async function editWorkout(form) {
+async function editWorkout(form, workoutId) {
   const data = new FormData();
   data.append("name", form.name);
   data.append("description", form.description);
@@ -142,9 +143,28 @@ async function editWorkout(form) {
 
   const res = await axios({
     method: "patch",
-    url: apiUrl + "workout/" + 6,
+    url: apiUrl + "workout/" + 1,
+    //url: `${apiUrl}workout/+${workoutId}`,
     headers: headers,
     data,
+  }).catch((error) => {
+    console.log(error);
+  });
+  return res.data;
+}
+
+async function searchWorkout(value, parameter) {
+  const token = localStorage.getItem("token");
+
+  let headers = {
+    "Content-Type": "application/json;charset=UTF-8",
+    Authorization: `Bearer ${token}`,
+  };
+
+  const res = await axios({
+    method: "get",
+    url: `${apiUrl}${endpoints.searchWorkout}${parameter}/${value}`,
+    headers: headers,
   }).catch((error) => {
     console.log(error);
   });
@@ -159,4 +179,5 @@ export {
   likeWorkout,
   dislikeWorkout,
   editWorkout,
+  searchWorkout,
 };
