@@ -30,6 +30,10 @@ article.workout-list{
     width: fit-content;
 }
 
+h1.workouts-list {
+    /* margin:2rem; */
+}
+
 h2.workout-name{
     display: flex;
     justify-content: center;

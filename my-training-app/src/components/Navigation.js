@@ -12,11 +12,6 @@ function Navigation() {
         </li>
 
         <li className="nav-element">
-          <Link to="/exercise" className="nav-link">
-            Exercise
-          </Link>
-        </li>
-        <li className="nav-element">
           <Link to="/register" className="nav-link">
             Register
           </Link>
