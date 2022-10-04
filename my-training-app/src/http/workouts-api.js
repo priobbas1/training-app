@@ -68,7 +68,7 @@ async function createWorkout(form) {
   }).catch((error) => {
     console.log(error);
   });
-  return res.data;
+  return res;
 }
 
 async function deleteWorkout(workoutId) {
@@ -91,7 +91,7 @@ async function deleteWorkout(workoutId) {
   return res.data;
 }
 
-async function likeWorkout(id) {
+async function likeWorkout(workoutId) {
   const token = localStorage.getItem("token");
 
   let headers = {
@@ -101,15 +101,15 @@ async function likeWorkout(id) {
 
   const res = await axios({
     method: "post",
-    url: apiUrl + "workout/" + 1 + "/like",
+    url: `${apiUrl}workout/like/+${workoutId}`,
     headers: headers,
   }).catch((error) => {
     console.log(error);
   });
-  return res.data;
+  return res;
 }
 
-async function dislikeWorkout(id) {
+async function dislikeWorkout(workoutId) {
   const token = localStorage.getItem("token");
 
   let headers = {
@@ -119,12 +119,12 @@ async function dislikeWorkout(id) {
 
   const res = await axios({
     method: "delete",
-    url: apiUrl + "workout/" + 1 + "/like",
+    url: `${apiUrl}workout/like/+${workoutId}`,
     headers: headers,
   }).catch((error) => {
     console.log(error);
   });
-  return res.data;
+  return res;
 }
 
 async function editWorkout(form, workoutId) {
@@ -150,7 +150,7 @@ async function editWorkout(form, workoutId) {
   }).catch((error) => {
     console.log(error);
   });
-  return res.data;
+  return res;
 }
 
 async function searchWorkout(value, parameter) {

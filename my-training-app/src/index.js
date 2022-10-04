@@ -14,7 +14,7 @@ import CreateWorkout from "./components/CreateWorkout";
 import EditWorkout from "./components/EditWorkout";
 import { WorkoutContextProviderComponent } from "./shared/context/workoutContext";
 import SearchWorkout from "./components/SearchWorkout";
-import DeleteWorkout from "./components/DeleteWorkout";
+import WorkoutCard from "./components/WorkoutCard";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -32,7 +32,7 @@ root.render(
               <Route path="/create" element={<CreateWorkout />} />
               <Route path="/edit" element={<EditWorkout />} />
               <Route path="/search" element={<SearchWorkout />} />
-              <Route path="/delete" element={<DeleteWorkout />} />
+              <Route path="/card" element={<WorkoutCard />} />
             </Route>
           </Routes>
         </BrowserRouter>

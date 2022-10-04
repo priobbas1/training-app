@@ -5,8 +5,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useNavigate, Link } from "react-router-dom";
 
-
-
 const schema = yup
   .object({
     name: yup.string().required(),
@@ -22,18 +20,18 @@ function CreateWorkout() {
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
-  } );
+  });
 
   const navigate = useNavigate();
 
   const onSubmit = async (form) => {
     try {
-      console.log(form);
       const res = await createWorkout(form);
+      console.log(res);
       if (res.status === 201) {
         console.log(res.data);
         navigate("/workouts");
-         }
+      }
     } catch (e) {
       console.error(e);
     }

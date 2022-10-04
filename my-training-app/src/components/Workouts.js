@@ -1,13 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { useWorkouts } from "../shared/hooks/useWorkouts";
+import { getWorkoutsList } from "../http/workouts-api";
 import WorkoutsList from "./WorkoutsList";
 
 function Workouts() {
-  const { workouts, loadWorkouts } = useWorkouts();
+  const [workouts, setWorkouts] = useState(null);
   useEffect(() => {
+    async function loadWorkouts() {
+      const res = await getWorkoutsList();
+      setWorkouts(res);
+    }
     loadWorkouts();
-  },);
+  }, []);
+
   return (
     <main className="workouts-list">
       <h1 className="workouts-list">Workouts</h1>
@@ -27,8 +32,6 @@ function Workouts() {
           </svg>
         </button>
       </Link>
-
-      
       {workouts ? (
         <WorkoutsList workouts={workouts.data}></WorkoutsList>
       ) : (

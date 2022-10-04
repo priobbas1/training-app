@@ -28,27 +28,23 @@ function Login() {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
+  const [requestError, setRequestError] = useState(null);
+
+  let res = null;
 
   const onSubmit = async (data) => {
     try {
-      const res = await loginAccount(data);
+      res = await loginAccount(data);
       if (res.status === 200) {
         console.log(res.data);
         login(res.data[1].accesToken);
         navigate("/workouts");
-        //updateToken();
-        //AuthProvider();
-      } else if (res.status === "400") {
-        console.log(res);
-      } else if (res.status === "404") {
-        console.log(res);
-      } else if (res.status === "401") {
-        console.log(res);
-      } else if (res.status === "500") {
-        console.log(res);
+        setRequestError(null);
+      } else {
+        setRequestError("invalid authentication credentials");
       }
     } catch (e) {
-      console.error(e);
+      console.log(e);
     }
   };
 
@@ -64,7 +60,7 @@ function Login() {
               placeholder="example@mail.com"
               autoComplete="off"
             ></input>
-            <p>{errors.email?.message}</p>
+            <p className="error">{errors.email?.message}</p>
 
             <label htmlFor="password">Password</label>
             <input
@@ -73,13 +69,14 @@ function Login() {
               placeholder="************"
               autoComplete="off"
             ></input>
-            <p>{errors.password?.message}</p>
+            <p className="error">{errors.password?.message}</p>
+            <p className="error">{requestError}</p>
           </div>
 
           <button type="submit">Login</button>
           <button
             onClick={() => {
-              reset({ email: "", password: "" }, { keepErrors: true });
+              reset({ email: "", password: "" }, { keepErrors: false });
             }}
           >
             Clear

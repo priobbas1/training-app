@@ -36,8 +36,7 @@ async function loginAccount(data) {
       password: data.password,
     },
   }).catch((e) => {
-    console.log(e.response?.data?.status);
-    console.log(e.response?.data?.message);
+    return e;
   });
 
   return res;
