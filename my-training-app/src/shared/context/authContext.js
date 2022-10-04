@@ -1,13 +1,17 @@
 import { createContext, useEffect, useState } from "react";
 
-export const AuthContext = createContext(null);
+import parseToken from "../utils/parseToken";
 
-export const AuthContextProviderComponent = ({ children }) => {
-  const [token, setToken] = useState(localStorage.getItem("token"));
+const AuthContext = createContext(null);
+
+const token = localStorage.getItem("token");
+//const tokenObject = parseToken(token);
+
+function AuthContextProviderComponent({ children }) {
+  const [token, setToken] = useState();
   //const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-
   useEffect(() => {
-    localStorage.setItem("token", token);
+    //localStorage.setItem("token", token);
     /* localStorage.setItem(
       "user",
       JSON.stringify({ token: token, role: "admin" })
@@ -20,6 +24,9 @@ export const AuthContextProviderComponent = ({ children }) => {
 
   const login = (token) => {
     setToken(token);
+    localStorage.setItem("token", token);
+    /* const tokenParsed = parseToken(token);
+    console.log(tokenParsed); */
   };
 
   return (
@@ -27,4 +34,6 @@ export const AuthContextProviderComponent = ({ children }) => {
       {children}
     </AuthContext.Provider>
   );
-};
+}
+
+export { AuthContext, AuthContextProviderComponent };
