@@ -16,7 +16,7 @@
 
 .wrap{
     width: 100%;
-    height: 80vw;
+    /* height: 80vw; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -47,7 +47,7 @@ main{
     justify-content: flex-start;
 }
 
-.home {
+ .home {
     display: flex;
     justify-content: space-between;
     padding: 1vw;
@@ -65,6 +65,7 @@ nav {
     font-size: min(3vw, 2rem); 
     flex-direction: row;
     align-items: center;
+    margin: 3rem;
 }
 
 section.WorkoutMenu{
@@ -90,14 +91,14 @@ nav > ul {
     list-style: none;
     justify-content: center;
     margin: rem;
-}
+} 
 
-li.nav-element {
-    padding: 0.4rem;
+ li.nav-element {
+    padding: 1rem;
     padding-right: 2rem;
     color: white;
     list-style: none;
-}
+} 
 
 .form-container{
     background-color: #fff;
@@ -182,9 +183,9 @@ input.field-input {
 label.field-input{
     font-size: max(1vh,18px);
 }
-svg{
-    display:none;
-}
+ button .favorito:active{
+     background-color: #ffde00;
+} 
 
 button {
     width: 67%;
@@ -254,13 +255,11 @@ footer{
 
 @media screen and (max-width: 1200px) and (min-width:400px) {
 
-    body{
-        width: 100%;    
-    }
+
     div.wrap{
-        height: 150vw;
+        height: 150vh;
         background-image: url(./components/assets/images/fondo.jpg);
-        background-size: contain;
+        background-size: cover;
         background-repeat: no-repeat;
     }
     .home{
@@ -273,3 +272,40 @@ footer{
         padding-right: 0;
     }
 } 
+@media screen and (max-width: 1800px) and (min-width:400px) {
+
+
+    div.wrap{
+        height: 150vh;
+        background-image: url(./components/assets/images/fondo.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+    .home{
+        justify-content: center;
+    }
+    header{
+        width: 80%;
+    }
+    li.nav-element{
+        padding-right: 0;
+    }
+} 
+@media screen and (min-width: 400px){
+
+
+    
+} 
+@media screen and (max-width: 900px){
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+
+}
+
+    
+} 
+
+
