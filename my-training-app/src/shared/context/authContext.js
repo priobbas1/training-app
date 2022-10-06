@@ -19,7 +19,7 @@ function AuthContextProviderComponent({ children }) {
   }, [token]);
 
   const logout = () => {
-    setToken("");
+    localStorage.removeItem("token");
   };
 
   const login = (token) => {

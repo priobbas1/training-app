@@ -1,7 +1,10 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../components/hojas-stilos/Navigation.css";
+import { AuthContext } from "../shared/context/authContext";
 
 function Navigation() {
+  const { logout } = useContext(AuthContext);
   return (
     <nav>
       <ul>
@@ -28,7 +31,7 @@ function Navigation() {
         </li>
 
         <li className="nav-element">
-          <Link to="/logout" className="nav-link">
+          <Link to="/" className="nav-link" onClick={logout}>
             Logout
           </Link>
         </li>
