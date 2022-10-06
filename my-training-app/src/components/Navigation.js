@@ -1,39 +1,37 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import "../components/hojas-stilos/Navigation.css";
+import { AuthContext } from "../shared/context/authContext";
 
 function Navigation() {
+  const { logout } = useContext(AuthContext);
   return (
     <nav>
       <ul>
-        <li>
+        <li className="nav-element">
           <Link to="/" className="nav-link">
-            Home
+            <span>Home</span>
           </Link>
         </li>
 
-        <li>
-          <Link to="/exercise" className="nav-link">
-            Exercise
-          </Link>
-        </li>
-        <li>
+        <li className="nav-element">
           <Link to="/register" className="nav-link">
             Register
           </Link>
         </li>
-        <li>
+        <li className="nav-element">
           <Link to="/login" className="nav-link">
             Login
           </Link>
         </li>
-        <li>
+        <li className="nav-element">
           <Link to="/workouts" className="nav-link">
             Workouts
           </Link>
         </li>
 
-        <li>
-          <Link to="/logout" className="nav-link">
+        <li className="nav-element">
+          <Link to="/" className="nav-link" onClick={logout}>
             Logout
           </Link>
         </li>

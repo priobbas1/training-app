@@ -7,6 +7,8 @@ import { loginAccount } from "../http/user-api";
 import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
+import { VisibilityOn } from "../shared/icons/Icons";
+
 const schema = yup
   .object({
     email: yup.string().email().required(),
@@ -28,72 +30,89 @@ function Login() {
   const navigate = useNavigate();
 
   const [showPassword, setShowPassword] = useState(false);
+  const [requestError, setRequestError] = useState(null);
+
+  let res = null;
 
   const onSubmit = async (data) => {
     try {
-      const res = await loginAccount(data);
+      res = await loginAccount(data);
       if (res.status === 200) {
-        console.log(res.data);
         login(res.data[1].accesToken);
-        navigate("/");
-        //updateToken();
-        //AuthProvider();
-      } else if (res.status === "400") {
-        console.log(res);
-      } else if (res.status === "404") {
-        console.log(res);
-      } else if (res.status === "401") {
-        console.log(res);
-      } else if (res.status === "500") {
-        console.log(res);
+        navigate("/workouts");
+        setRequestError(null);
+      } else {
+        setRequestError("invalid authentication credentials");
       }
     } catch (e) {
-      console.error(e);
+      console.log(e);
     }
   };
 
   return (
     <>
       <section className="form-container">
-        <h2>Inicia Sesión</h2>
+        <h2 className="form-title">Login</h2>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="field-container">
-            <label htmlFor="email">Email</label>
-
+            <label htmlFor="email" className="field-input">
+              Email
+            </label>
             <input
               {...register("email")}
               placeholder="example@mail.com"
+              autoComplete="off"
+              className="field-input"
             ></input>
-            <p>{errors.email?.message}</p>
+            <p className="error">{errors.email?.message}</p>
 
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" className="field-input">
+              Password
+            </label>
             <input
               {...register("password")}
               type={showPassword ? "text" : "password"}
               placeholder="************"
+              autoComplete="off"
+              className="field-input"
             ></input>
-            <p>{errors.password?.message}</p>
+            <p className="error">
+              {(errors.password && <span>{errors.password?.message}</span>) ||
+                (requestError && <span className="error">{requestError}</span>)}
+            </p>
           </div>
 
-          <button type="submit">Login</button>
-          <button
-            onClick={() => {
-              reset({ email: "", password: "" }, { keepErrors: true });
-            }}
-          >
-            Clear
+          <button type="submit" id="submit">
+            Login
           </button>
         </form>
-        <button onClick={() => setShowPassword(showPassword ? false : true)}>
-          Show password
+        <button
+          onClick={() => {
+            reset({ email: "", password: "" }, { keepErrors: false });
+            setRequestError(null);
+          }}
+          id="clean"
+        >
+          Clear
         </button>
-        <Link to="/register">¿Aún no estás registrado?</Link>
+        <button
+          className="icon"
+          onClick={() => setShowPassword(showPassword ? false : true)}
+          id="password"
+        >
+          <VisibilityOn></VisibilityOn>
+        </button>
+        <span className="home-link">
+          <Link to="/register" className="register-link">
+            Not registered yet? Register here
+          </Link>
+        </span>
+        <span className="home-link">
+          <Link to={"/"} className="home-link">
+            Go to Home
+          </Link>
+        </span>
       </section>
-      <span>
-        <Link to={"/"} className="home-link">
-          Go to Home
-        </Link>
-      </span>
     </>
   );
 }

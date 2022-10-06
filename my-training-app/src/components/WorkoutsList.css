@@ -1,0 +1,179 @@
+main {
+    width: 100%;
+    background-color: whitesmoke; 
+}
+ul.workout-list {
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 1rem;
+}
+
+li.workout-list{
+    list-style: none;
+    border-radius: 1rem;
+    margin: 1rem;
+    background-color: rgb(255, 255, 255);
+}
+section.workout-list {
+    padding: 1rem;
+    margin: 1rem;
+    width: fit-content;
+}
+
+article.workout-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    padding: 0rem;
+    margin: 0rem;
+    width: fit-content;
+}
+
+h1.workouts-list {
+    /* margin:2rem; */
+    /* margin: auto; */
+}
+
+h2.workout-name{
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+h3.workout-muscle {
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+}
+
+img.workout-gif {
+    width: 80%;
+    height: auto;
+    border-radius: 2rem;
+}
+
+header {
+    width: 100%;
+}
+
+section.WorkoutMenu{
+    width:100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+article.WorkoutMenu {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul.workouts-list{
+list-style: none;
+display: flex;
+flex-direction: row;
+align-self: flex-end;
+}
+
+li.workouts-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+#create, #search, #workoutsFav{
+    width: 100%;
+    background: #555252;
+    color: rgb(0, 0, 0);
+    font-size: min(2vh, 1.2rem);
+    padding: .5em 0;
+    border: 1px solid black;
+    border-radius: .5em;
+    cursor: pointer;
+    margin: 0.5rem;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+#create:hover, #search:hover, #workoutsFav:hover{
+color: burlywood;
+background: #5f5a5a;
+}
+
+.edit, .details{
+    display: flex;
+    width: 100%;
+    margin:auto;
+    justify-content: center;
+}
+
+/*section.workout-list {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    border-radius: 1rem;
+    font-size: 12px;
+    background-color: #ffffffe2;
+    width: fit-content;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+}
+
+h2{
+    color: black;
+}
+
+
+/* 
+main.workouts-list{
+    width:100%;
+}
+
+article.workout-list{
+    display: flex;
+    flex-direction: row;
+}
+
+img.workout-gif {
+    width: 60%;
+    height: auto;
+    border-radius: 2rem;
+}
+
+h2.workout-name{
+    display: block;
+    flex-grow: 1;
+    color: black;
+}
+
+h3.workout-muscle{
+    display: block;
+    flex-grow: 1;
+    color: black;
+}
+ul.workout-list{
+    width: 60%;
+    display: grid;
+    align-items: center;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(auto-fill, 200px);
+    margin: 4rem;
+}
+
+li.workout-list {
+    width: 90%;
+    display: flex;
+    align-items: center;
+} */
+.botones{
+    display: flex;
+    justify-content: space-between;
+}
