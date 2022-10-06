@@ -23,8 +23,8 @@ function WorkoutsFav() {
         <button onClick={() => onSubmit()}>Favs</button>
       </section>
       <span>
-        <Link to={"/"} className="home-link">
-          Go to Home
+        <Link to={"/workouts"} className="home-link">
+          Back
         </Link>
       </span>
 

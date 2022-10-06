@@ -16,7 +16,11 @@ function WorkoutCardElement({ workout }) {
           <p className="workout-card">{workout.description}</p>
         </article>
       </section>
+     
+
+      <Link to="/workouts">Back</Link>
     </main>
+     
   );
 }
 
