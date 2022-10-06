@@ -38,7 +38,6 @@ function Login() {
     try {
       res = await loginAccount(data);
       if (res.status === 200) {
-        console.log(res.data);
         login(res.data[1].accesToken);
         navigate("/workouts");
         setRequestError(null);

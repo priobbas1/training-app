@@ -15,8 +15,7 @@ function WorkoutElement({ workout }) {
     try {
       const res = await deleteWorkout(workoutId);
       console.log(res);
-      if (res.status === 200) {
-        console.log(res.data);
+      if (res[0].status === "200") {
         window.location.reload(true);
       }
     } catch (e) {
@@ -83,7 +82,7 @@ function WorkoutElement({ workout }) {
           <h2 className="workout-name">{workout.name}</h2>
           <h3 className="workout-muscle">{/* {workout.muscle} */}</h3>
 
-          <Link to="/edit" className="edit">
+          <Link to={`/edit/${workoutId}`} className="edit">
             <button>
               EDIT
               <svg height="48" width="48">
@@ -106,7 +105,7 @@ function WorkoutElement({ workout }) {
             </svg>
           </button>
 
-          <Link to={`/card/${workout.id}`} className="details">
+          <Link to={`/card/${workoutId}`} className="details">
             <button>DETAILS</button>
           </Link>
         </article>

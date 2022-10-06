@@ -182,9 +182,9 @@ input.field-input {
 label.field-input{
     font-size: max(1vh,18px);
 }
-svg{
+/* svg{
     display:none;
-}
+} */
 
 button {
     width: 67%;

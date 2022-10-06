@@ -39,8 +39,7 @@ function Register() {
     try {
       const res = await createAccount(data);
       if (res.status === "201") {
-        setRequestError(201);
-        console.log(res);
+        setRequestError(null);
         navigate("/login");
       } else if (res.status === "409") {
         setRequestError(

@@ -15,6 +15,8 @@ import { WorkoutContextProviderComponent } from "./shared/context/workoutContext
 import SearchWorkout from "./components/SearchWorkout";
 import WorkoutCard from "./components/WorkoutCard";
 import WorkoutsFav from "./components/WorkoutsFav";
+import AdminRoute from "./components/AdminRoute";
+import { LoggedRoute, NotLoggedRoute } from "./components/NotLoggedRoute";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -27,9 +29,30 @@ root.render(
               <Route index element={<App />}></Route>
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/workouts" element={<Workouts />} />
-              <Route path="/create" element={<CreateWorkout />} />
-              <Route path="/edit" element={<EditWorkout />} />
+              <Route
+                path="/workouts"
+                element={
+                  <LoggedRoute>
+                    <Workouts />
+                  </LoggedRoute>
+                }
+              />
+              <Route
+                path="/create"
+                element={
+                  <AdminRoute>
+                    <CreateWorkout />
+                  </AdminRoute>
+                }
+              />
+              <Route
+                path="/edit/:workoutId"
+                element={
+                  <AdminRoute>
+                    <EditWorkout />
+                  </AdminRoute>
+                }
+              />
               <Route path="/search" element={<SearchWorkout />} />
               <Route path="/card/:workoutId" element={<WorkoutCard />} />
               <Route path="/workoutsFav" element={<WorkoutsFav />} />
