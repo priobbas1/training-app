@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.botones{
+    display: flex;
+    justify-content: space-between;
+    padding-left:3px;
+     padding-right:3px;
+}

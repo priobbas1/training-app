@@ -173,3 +173,7 @@ li.workout-list {
     display: flex;
     align-items: center;
 } */
+.botones{
+    display: flex;
+    justify-content: space-between;
+}
