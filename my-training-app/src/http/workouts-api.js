@@ -8,6 +8,7 @@ export const endpoints = {
   createWorkout: "workout/",
   deleteWorkout: "workouts/",
   searchWorkout: "workout/",
+  getWorkoutsListFav: "workoutsFav/",
 };
 
 async function getWorkoutsList() {
@@ -28,7 +29,7 @@ async function getWorkoutsList() {
   return res;
 }
 
-async function getWorkoutDetails(id) {
+async function getWorkoutDetails(workoutId) {
   const token = localStorage.getItem("token");
 
   let headers = {
@@ -38,12 +39,12 @@ async function getWorkoutDetails(id) {
 
   const res = await axios({
     method: "get",
-    url: apiUrl + endpoints.getWorkoutsDetails + 1,
+    url: `${apiUrl}${endpoints.getWorkoutsDetails}${workoutId}`,
     headers: headers,
   }).catch((error) => {
     console.log(error);
   });
-  return res.data;
+  return res;
 }
 
 async function createWorkout(form) {
@@ -67,6 +68,7 @@ async function createWorkout(form) {
     data,
   }).catch((error) => {
     console.log(error);
+    return error;
   });
   return res;
 }
@@ -153,7 +155,7 @@ async function editWorkout(form, workoutId) {
   return res;
 }
 
-async function searchWorkout(value, parameter) {
+async function searchWorkout(parameter, value) {
   const token = localStorage.getItem("token");
 
   let headers = {
@@ -168,7 +170,26 @@ async function searchWorkout(value, parameter) {
   }).catch((error) => {
     console.log(error);
   });
-  return res.data;
+  return res;
+}
+
+async function getWorkoutsListFav() {
+  const token = localStorage.getItem("token");
+
+  let headers = {
+    "Content-Type": "application/json;charset=UTF-8",
+    Authorization: `Bearer ${token}`,
+  };
+
+  const res = await axios({
+    method: "get",
+    url: apiUrl + endpoints.getWorkoutsListFav,
+    headers: headers,
+  }).catch((error) => {
+    console.log(error);
+  });
+  console.log(res);
+  return res;
 }
 
 export {
@@ -180,4 +201,5 @@ export {
   dislikeWorkout,
   editWorkout,
   searchWorkout,
+  getWorkoutsListFav,
 };

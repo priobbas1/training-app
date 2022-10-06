@@ -1,22 +1,29 @@
-function WorkoutCard({ workout }) {
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { getWorkoutDetails } from "../http/workouts-api";
+import WorkoutCardElement from "./WorkoutCardElement";
+import Header from "./Header";
+
+function WorkoutCard() {
+  const { workoutId } = useParams();
+  const [workout, setWorkout] = useState(null);
+  async function loadWorkout() {
+    const res = await getWorkoutDetails(workoutId);
+    setWorkout(res.data[1]);
+  }
+  useEffect(() => {
+    loadWorkout();
+  }, []);
+
   return (
-    <li className="workout-list">
-      <section className="workout-list">
-        <article className="workout-list">
-          {
-            <img
-              className="workout-gif"
-              src={`${process.env.REACT_APP_BACKEND}uploads/workouts/${workout.image}`}
-              title="Farmer's Carry"
-              alt="Farmer's Carry workout"
-            />
-          }
-          <h2 className="workout-name">{workout.name}</h2>
-          <h3 className="workout-muscle">{workout.muscle}</h3>
-          <p>{workout.description}</p>
-        </article>
-      </section>
-    </li>
+    <>
+      <Header></Header>
+      {workout ? (
+        <WorkoutCardElement workout={workout}></WorkoutCardElement>
+      ) : (
+        <p>loading workouts</p>
+      )}
+    </>
   );
 }
 

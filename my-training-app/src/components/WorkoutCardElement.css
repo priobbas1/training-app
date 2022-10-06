@@ -1,0 +1,50 @@
+main {
+    width: 100%;
+    background-color: whitesmoke;
+}
+
+section.workout-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    margin-top:4vh;
+    margin-bottom: 6vh;
+}
+
+article.workout-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    margin-bottom: 2rem;
+    width: 60%;
+    background-color: white;
+    border-radius: 2rem;
+}
+
+img.workout-gif-card{
+    height: 600px;
+    width: 600px;
+    height: auto;
+    border-radius: 2rem;
+    margin: 1rem;
+}
+
+h2.workout-card{
+    margin:1rem;
+    text-transform: uppercase;
+}
+
+h3.workout-card {
+    margin: 1rem;
+    text-transform: uppercase;
+}
+
+p.workout-card {
+    width: 80%;
+    margin: 1rem;
+    margin-bottom: 4rem;
+    text-transform: uppercase;
+}

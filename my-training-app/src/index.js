@@ -9,12 +9,12 @@ import Root from "./components/Root";
 import Login from "./components/Login";
 import Workouts from "./components/Workouts";
 import { AuthContextProviderComponent } from "./shared/context/authContext";
-import { Logout } from "./components/Logout";
 import CreateWorkout from "./components/CreateWorkout";
 import EditWorkout from "./components/EditWorkout";
 import { WorkoutContextProviderComponent } from "./shared/context/workoutContext";
 import SearchWorkout from "./components/SearchWorkout";
 import WorkoutCard from "./components/WorkoutCard";
+import WorkoutsFav from "./components/WorkoutsFav";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -28,11 +28,11 @@ root.render(
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
               <Route path="/workouts" element={<Workouts />} />
-              <Route path="/logout" element={<Logout />} />
               <Route path="/create" element={<CreateWorkout />} />
               <Route path="/edit" element={<EditWorkout />} />
               <Route path="/search" element={<SearchWorkout />} />
-              <Route path="/card" element={<WorkoutCard />} />
+              <Route path="/card/:workoutId" element={<WorkoutCard />} />
+              <Route path="/workoutsFav" element={<WorkoutsFav />} />
             </Route>
           </Routes>
         </BrowserRouter>

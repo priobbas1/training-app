@@ -41,8 +41,7 @@ main{
     align-items: center; 
     justify-content: center; 
 } */
-main{
-    
+main{ 
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -56,9 +55,6 @@ main{
     overflow-x: auto;
     flex-wrap: wrap;
 }
-header{
-    width: 100%;
-}
 
 nav {
     display: flex;
@@ -70,6 +66,23 @@ nav {
     flex-direction: row;
     align-items: center;
 }
+
+section.WorkoutMenu{
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    width: 100%;
+        text-transform: uppercase;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.82);
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: min(3vw, 2rem);
+        flex-direction: row;
+        align-items: center;
+}
+
 
 nav > ul {
     display: flex;
@@ -88,17 +101,19 @@ li.nav-element {
 
 .form-container{
     background-color: #fff;
-    margin:10vh;
-    margin-bottom: 0;
+    margin: auto;
+/*     margin:10vh;
+    margin-bottom: 0; */
     width: 90%;
     max-width: 440px;
-    padding: 4rem;
+    padding-left: max(2vw, 2rem);
+    padding-right: max(2vw,2rem);
     padding-top: 1rem;
     padding-bottom: 1rem;
     border-radius: 5px;
     box-shadow: 0 5px -5px rgb(0 0 0 / 30%);
     display: grid;
-    gap: 0.5em;
+    gap: 1vh;
     border-style:solid;
     border-width: 1px;
     border-color: black; 
@@ -118,10 +133,13 @@ li.nav-element {
 } */
 
 h2.form-title{
-    font-size: 2rem;
+    font-size: 4vh;
     text-align: center;
-    margin-bottom: 2rem;
-    margin-top: 4rem;
+    /* margin-bottom: 2rem; */
+    margin-top: max(2vh,0.6rem);
+    /* margin:auto; */
+    /* margin-bottom: 1vh;
+    margin-bottom:1vh ; */
 
 }
 
@@ -130,11 +148,14 @@ p.error{
     color: rgb(255, 0, 0);
     height: 19px;
     margin-bottom: 2rem;
+    font-size: max(1.6vh, 14px);
 }
 
-section > a {
+span.home-link {
+    display: flex;
+    justify-content: center;
     font-weight: 400;
-    color: black;
+    color: rgb(255, 0, 0);
     font-size: 1rem;
     display: flex;
     align-items: baseline;
@@ -144,40 +165,70 @@ section > a {
     color: rgb(19, 23, 140);   
 }
 
-.field-container > input {
+input.field-input {
     width: 100%;
     height: 2rem;
     background: none;
-    color: #706c6c;
-    font-size: 1rem;
+    color: #555252;
+    font-size: max(1vh, 16px);
     /* padding: .6em .3em; */
-    margin-top:1rem;
     border: none;
     outline: none;
     border-bottom: 1px solid #5757577e;
+    /* font-style: italic; */
+    font-weight: 300;
+}
+
+label.field-input{
+    font-size: max(1vh,18px);
+}
+svg{
+    display:none;
 }
 
 button {
-    width: 100%;
-    background: #3866f2;
-    color: rgb(255, 255, 255);
+    width: 67%;
+    background: #5f5a5a12;
+    color: rgb(0, 0, 0);
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
-    font-size: 1rem;
+    font-size: min(2vh, 1.2rem);
     padding: .5em 0;
     border: none;
     border-radius: .5em;
     cursor: pointer;
-    margin: 0.5rem;
+    margin: auto;
     margin-top: 0.5rem;
+    text-transform: uppercase;
+    font-weight: bold;
+    align-self: center;
+}
+
+#submit, #clean, #password{
+    margin: auto;
+    width: 100%;
 }
 
 button:hover {
-    color: rgb(19, 23, 140);
+    background-color: rgba(222, 184, 135, 0.536) ;
+}
+svg{
+    fill:rgb(0, 0, 0);
+}
+
+svg:hover {
+    fill: burlywood;
 }
 
 a:link {
     text-decoration: none;
+}
+a:hover{
+    color: burlywood;
+}
+
+span > a:hover{
+    color: burlywood;
 }
 
 a.register-link{
