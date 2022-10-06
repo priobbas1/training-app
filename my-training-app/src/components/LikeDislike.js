@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/* import React, { useState } from "react";
 
 
 function LikeDislike() {
@@ -52,4 +52,4 @@ function LikeDislike() {
   )
 }
 
-export default LikeDislike;
+export default LikeDislike; */

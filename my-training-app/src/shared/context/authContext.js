@@ -9,7 +9,7 @@ const tokenObject = parseToken(token);
 
 function AuthContextProviderComponent({ children }) {
   const [token, setToken] = useState(null);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState();
   const [isUserLogged, setIsUserLogged] = useState(!!tokenObject);
   //const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   useEffect(() => {

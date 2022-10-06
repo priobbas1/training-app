@@ -100,7 +100,6 @@ function Login() {
           onClick={() => setShowPassword(showPassword ? false : true)}
           id="password"
         >
-          See password
           <VisibilityOn></VisibilityOn>
         </button>
         <span className="home-link">

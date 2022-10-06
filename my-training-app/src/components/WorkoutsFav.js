@@ -5,12 +5,13 @@ import Header from "./Header";
 import WorkoutsList from "./WorkoutsList";
 
 function WorkoutsFav() {
-  const [workoutsFav, setWorkoutsFav] = useState();
+  const [workoutsFav, setWorkoutsFav] = useState(null);
   const onSubmit = async () => {
     try {
       const res = await getWorkoutsListFav();
+      console.log(res, "respuesta axios");
       setWorkoutsFav(res.data.data);
-      console.log(res.data.data);
+      //console.log(res.data.data);
     } catch (e) {
       console.error(e);
     }
