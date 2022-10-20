@@ -38,7 +38,6 @@ function Login() {
     try {
       res = await loginAccount(data);
       if (res.status === 200) {
-        console.log(res.data);
         login(res.data[1].accesToken);
         navigate("/workouts");
         setRequestError(null);
@@ -101,7 +100,6 @@ function Login() {
           onClick={() => setShowPassword(showPassword ? false : true)}
           id="password"
         >
-          See password
           <VisibilityOn></VisibilityOn>
         </button>
         <span className="home-link">

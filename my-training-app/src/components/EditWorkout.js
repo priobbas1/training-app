@@ -3,16 +3,16 @@ import { editWorkout } from "../http/workouts-api";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useParams } from "react-router-dom";
 import { useState } from "react";
 
 const schema = yup
   .object({
-    name: yup.string().min(3).required(),
-    description: yup.string().min(16).max(255).required(),
-    image: yup.mixed().required(),
-    typology: yup.string().min(3).max(30).required(),
-    muscle: yup.string().min(3).max(60).required(),
+    name: yup.string(),
+    description: yup.string().max(255),
+    image: yup.mixed(),
+    typology: yup.string().max(30),
+    muscle: yup.string().max(60),
   })
   .required();
 
@@ -26,14 +26,20 @@ function EditWorkout() {
     resolver: yupResolver(schema),
   });
 
-  //const { workoutId, useWorkoutId } = useWorkoutId();
+  const { workoutId } = useParams();
+
+  const navigate = useNavigate();
 
   const [requestError, setRequestError] = useState(null);
 
   const onSubmit = async (form) => {
     try {
-      //console.log(workoutId);
-      const res = await editWorkout(form);
+      const res = await editWorkout(form, workoutId);
+      if (res?.status === 201) {
+        navigate("/workouts");
+      } else if (res.response.data[0].message === "photo not found") {
+        setRequestError("image is required");
+      }
     } catch (e) {
       console.error(e);
     }
@@ -81,7 +87,7 @@ function EditWorkout() {
           </div>
 
           <button type="submit" id="submit">
-            Edit
+            Confirm Edit
           </button>
         </form>
         <button
@@ -94,8 +100,9 @@ function EditWorkout() {
                 typology: "",
                 muscle: "",
               },
-              { keepErrors: true }
+              { keepErrors: false }
             );
+            setRequestError(null);
           }}
           id="clean"
         >

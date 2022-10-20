@@ -39,8 +39,7 @@ function Register() {
     try {
       const res = await createAccount(data);
       if (res.status === "201") {
-        setRequestError(201);
-        console.log(res);
+        setRequestError(null);
         navigate("/login");
       } else if (res.status === "409") {
         setRequestError(
@@ -123,7 +122,6 @@ function Register() {
           onClick={() => setShowPassword(showPassword ? false : true)}
           id="password"
         >
-          See password
           <VisibilityOn></VisibilityOn>
         </button>
         <span className="home-link">

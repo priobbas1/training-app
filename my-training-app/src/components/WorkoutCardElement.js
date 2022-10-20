@@ -13,14 +13,12 @@ function WorkoutCardElement({ workout }) {
           />
           <h2 className="workout-card">{workout.name}</h2>
           <h3 className="workout-card">{workout.muscle}</h3>
+          {/* <p className="workout-card">{workout.typology}</p> */}
           <p className="workout-card">{workout.description}</p>
         </article>
+        <Link to="/workouts">Back</Link>
       </section>
-     
-
-      <Link to="/workouts">Back</Link>
     </main>
-     
   );
 }
 
