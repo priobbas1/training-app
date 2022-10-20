@@ -1,35 +1,30 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 
 import { parseToken } from "../utils/parseToken";
 
 const AuthContext = createContext(null);
 
-const token = localStorage.getItem("token");
-const tokenObject = parseToken(token);
-
 function AuthContextProviderComponent({ children }) {
-  const [token, setToken] = useState(null);
+  const [token, setToken] = useState(localStorage.getItem("token"));
   const [isAdmin, setIsAdmin] = useState();
+  const tokenObject = parseToken(token);
   const [isUserLogged, setIsUserLogged] = useState(!!tokenObject);
   //const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-  useEffect(() => {
-    //localStorage.setItem("token", token);
-    /* localStorage.setItem(
-      "user",
-      JSON.stringify({ token: token, role: "admin" })
-    ); */
-  }, [token]);
-
-  const tokenParsed = null;
+  /* useEffect(() => {
+    localStorage.setItem("token", token);
+  }, [token]); */
 
   const logout = () => {
-    tokenParsed = null;
-    token = null;
     localStorage.removeItem("token");
+    setIsAdmin(null);
+    setIsUserLogged(null);
   };
 
-  const login = (token) => {
+  const login = (token, exp) => {
     setToken(token);
+    setTimeout(() => {
+      logout();
+    }, exp * 1000);
     localStorage.setItem("token", token);
     const tokenParsed = parseToken(token);
     const { role } = tokenParsed;
@@ -41,9 +36,13 @@ function AuthContextProviderComponent({ children }) {
     }
   };
 
+  const getToken = () => {
+    return token;
+  };
+
   return (
     <AuthContext.Provider
-      value={{ token, login, logout, isAdmin, isUserLogged }}
+      value={{ token, login, logout, isAdmin, isUserLogged, getToken }}
     >
       {children}
     </AuthContext.Provider>

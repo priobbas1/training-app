@@ -16,7 +16,7 @@ import SearchWorkout from "./components/SearchWorkout";
 import WorkoutCard from "./components/WorkoutCard";
 import WorkoutsFav from "./components/WorkoutsFav";
 import AdminRoute from "./components/AdminRoute";
-import { LoggedRoute, NotLoggedRoute } from "./components/NotLoggedRoute";
+import { LoggedRoute } from "./components/NotLoggedRoute";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

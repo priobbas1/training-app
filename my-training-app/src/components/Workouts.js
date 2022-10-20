@@ -1,7 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { getWorkoutsList } from "../http/workouts-api";
-import { Create, Search } from "../shared/icons/Icons";
+import { getWorkoutsList, getWorkoutsListFav } from "../http/workouts-api";
 import Header from "./Header";
 import WorkoutMenu from "./WorkoutMenu";
 import WorkoutsList from "./WorkoutsList";
@@ -12,6 +10,9 @@ function Workouts() {
     async function loadWorkouts() {
       const res = await getWorkoutsList();
       setWorkouts(res);
+      //const res2 = await getWorkoutsListFav();
+      /* const workoutFavId = res2.data.data[0].ejercicio_id;
+      console.log(workoutFavId); */
     }
     loadWorkouts();
   }, []);

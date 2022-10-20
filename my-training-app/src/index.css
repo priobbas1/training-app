@@ -220,6 +220,13 @@ svg:hover {
     fill: burlywood;
 }
 
+svg.favIconTrue{
+    fill: rgb(255, 0, 0);
+}
+svg.favIconFalse{
+    fill: rgb(0, 0, 0);
+}
+
 a:link {
     text-decoration: none;
 }

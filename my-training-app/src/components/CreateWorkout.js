@@ -32,10 +32,9 @@ function CreateWorkout() {
 
   const onSubmit = async (form) => {
     try {
+      console.log(form);
       const res = await createWorkout(form);
-      console.log(res);
       if (res?.status === 201) {
-        console.log(res.data);
         navigate("/workouts");
       } else if (res.response.data[0].message === "photo not found") {
         setRequestError("image is required");

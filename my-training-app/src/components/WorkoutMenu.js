@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import { getWorkoutsListFav } from "../http/workouts-api";
-import { Create, Search } from "../shared/icons/Icons";
-import WorkoutsFav from "./WorkoutsFav";
+import { CreateIcon, FavIcon, SearchIcon } from "../shared/icons/Icons";
 
 function WorkoutMenu() {
   return (
@@ -13,7 +11,7 @@ function WorkoutMenu() {
             <Link to="/create">
               <button id="create">
                 CREATE
-                <Create></Create>
+                <CreateIcon></CreateIcon>
               </button>
             </Link>
           </li>
@@ -21,13 +19,16 @@ function WorkoutMenu() {
             <Link to="/search">
               <button id="search">
                 SEARCH
-                <Search></Search>
+                <SearchIcon></SearchIcon>
               </button>
             </Link>
           </li>
           <li>
             <Link to="/workoutsFav">
-              <button id="workoutsFav">FAVS</button>
+              <button id="workoutsFav">
+                FAVS
+                <FavIcon></FavIcon>
+              </button>
             </Link>
           </li>
         </ul>

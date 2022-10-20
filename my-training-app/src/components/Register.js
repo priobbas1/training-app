@@ -3,10 +3,10 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { createAccount } from "../http/user-api";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import { VisibilityOn } from "../shared/icons/Icons";
+import { VisibilityIcon } from "../shared/icons/Icons";
 
 const schema = yup
   .object({
@@ -99,7 +99,6 @@ function Register() {
               {(errors.confirm && <span>your passwords do no match</span>) ||
                 (requestError && <span className="error">{requestError}</span>)}
             </p>
-            {/* {requestError && <p className="error">{requestError}</p>} */}
           </div>
 
           <button type="submit" id="submit">
@@ -122,7 +121,7 @@ function Register() {
           onClick={() => setShowPassword(showPassword ? false : true)}
           id="password"
         >
-          <VisibilityOn></VisibilityOn>
+          <VisibilityIcon></VisibilityIcon>
         </button>
         <span className="home-link">
           <Link to="/login" className="register-link">

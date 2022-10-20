@@ -7,7 +7,7 @@ import { loginAccount } from "../http/user-api";
 import { useContext, useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-import { VisibilityOn } from "../shared/icons/Icons";
+import { VisibilityIcon } from "../shared/icons/Icons";
 
 const schema = yup
   .object({
@@ -38,7 +38,7 @@ function Login() {
     try {
       res = await loginAccount(data);
       if (res.status === 200) {
-        login(res.data[1].accesToken);
+        login(res.data[1].accesToken, res.data[1].expiresIn);
         navigate("/workouts");
         setRequestError(null);
       } else {
@@ -100,7 +100,7 @@ function Login() {
           onClick={() => setShowPassword(showPassword ? false : true)}
           id="password"
         >
-          <VisibilityOn></VisibilityOn>
+          <VisibilityIcon></VisibilityIcon>
         </button>
         <span className="home-link">
           <Link to="/register" className="register-link">

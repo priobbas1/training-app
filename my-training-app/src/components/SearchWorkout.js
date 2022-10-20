@@ -1,26 +1,23 @@
 import { useForm } from "react-hook-form";
-import {
-  createWorkout,
-  editWorkout,
-  searchWorkout,
-} from "../http/workouts-api";
+import { searchWorkout } from "../http/workouts-api";
 import Select from "react-select";
 
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-import { useNavigate, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 import Header from "./Header";
-import WorkoutMenu from "./WorkoutMenu";
 import WorkoutsList from "./WorkoutsList";
 
-/* const schema = yup
+const schema = yup
   .object({
-    name: yup.string().email().required(),
-    description: yup.sCreatering().min(3).max(30).required(),
+    name: yup.string(),
+    description: yup.string(),
+    typology: yup.string(),
+    muscle: yup.string(),
   })
-  .required(); */
+  .required();
 
 function SearchWorkout() {
   const {
@@ -28,14 +25,12 @@ function SearchWorkout() {
     reset,
     handleSubmit,
     formState: { errors },
-  } = useForm(/* {
+  } = useForm({
     resolver: yupResolver(schema),
-  } */);
+  });
   const [parameter, setParameter] = useState("name");
   const [workoutsFiltered, setWorkoutsFiltered] = useState(null);
   const [requestError, setRequestError] = useState(null);
-  //let parameter = null;
-  let value = null;
 
   const options = [
     { value: "name", label: "name" },
@@ -47,11 +42,8 @@ function SearchWorkout() {
   const onSubmit = async (form) => {
     try {
       if (form.parameterForm) {
-        console.log(form);
-        console.log(parameter);
         const res = await searchWorkout(parameter, form.parameterForm);
         setWorkoutsFiltered(res.data.data);
-        console.log(res.data.data);
       } else {
         setRequestError("search value is required");
       }
@@ -79,7 +71,8 @@ function SearchWorkout() {
               className="field-input"
             ></input>
             <p className="error">
-              {requestError && <span className="error">{requestError}</span>}
+              {<p className="error">{errors.password?.message}</p> ||
+                (requestError && <span className="error">{requestError}</span>)}
             </p>
           </div>
 
