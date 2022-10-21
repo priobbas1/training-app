@@ -233,7 +233,7 @@ a:hover{
     color: burlywood;
 }
 a:active{
-    background: orangered;
+    background: rgb(240, 104, 54);
 }
 
 span > a:hover{
