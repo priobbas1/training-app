@@ -11,7 +11,7 @@ function Workouts() {
   useEffect(() => {
     async function loadWorkouts() {
       const res = await getWorkoutsList();
-      setWorkouts(res);
+      setWorkouts(res.data.data);
     }
     loadWorkouts();
   }, []);
@@ -22,7 +22,7 @@ function Workouts() {
       <main className="workouts-list">
         <WorkoutMenu></WorkoutMenu>
         {workouts ? (
-          <WorkoutsList workouts={workouts.data.data}></WorkoutsList>
+          <WorkoutsList workouts={workouts} setWorkouts={setWorkouts}></WorkoutsList>
         ) : (
           <p>loading workouts</p>
         )}
