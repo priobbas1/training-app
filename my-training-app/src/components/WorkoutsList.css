@@ -85,7 +85,7 @@ li.workouts-list {
 
 #create, #search, #workoutsFav{
     width: 100%;
-    background: #555252;
+    background: #FFFFFF;
     color: rgb(0, 0, 0);
     font-size: min(2vh, 1.2rem);
     padding: .5em 0;
@@ -101,6 +101,9 @@ li.workouts-list {
 #create:hover, #search:hover, #workoutsFav:hover{
 color: burlywood;
 background: #5f5a5a;
+}
+#create:active{
+    background: rgb(235, 91, 39);
 }
 
 .edit, .details{

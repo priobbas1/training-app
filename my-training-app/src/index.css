@@ -160,6 +160,12 @@ span.home-link {
     display: flex;
     align-items: baseline;
 }
+a.home-link{
+    color: black;
+}
+a.home-link:hover{
+    background: orangered;
+}
 
 .form-container > a:hover {
     color: rgb(19, 23, 140);   
@@ -225,6 +231,9 @@ a:link {
 }
 a:hover{
     color: burlywood;
+}
+a:active{
+    background: orangered;
 }
 
 span > a:hover{
